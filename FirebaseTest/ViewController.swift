@@ -9,17 +9,36 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    struct Storyboard{
+        static let SignUp = "SignUp"
+        static let Login = "Login"
+    }
+    
+    @IBOutlet var login: GrayButtons!
 
+    @IBOutlet var register: GrayButtons!
+    
+    
+    //MARK: - @IBACTIONS
+    
+    @IBAction func loginButton(sender: AnyObject) {
+        performSegueWithIdentifier(Storyboard.Login, sender: self)
+    }
+    
+    @IBAction func registerButton(sender: AnyObject) {
+        performSegueWithIdentifier(Storyboard.SignUp, sender: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 
