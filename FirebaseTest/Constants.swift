@@ -33,9 +33,19 @@ struct User {
 }
 
 struct Card{
+    static let OwnerUniqueID = "owner_unique_id"
     static let UniqueID = "unique_id"
     static let Company = "company"
     static let Email = "email"
     static let Name = "name"
     static let Headline = "headline"
 }
+
+struct Email{
+    static let OwnerUniqueID = "owner_unique_id"
+    static let UniqueID = "unique_id"
+    static let Type = "type"
+    static let Email = "email"
+}
+
+let EMAIL_TYPE = "type"

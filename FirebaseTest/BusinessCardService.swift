@@ -14,28 +14,44 @@ class BusinessCard:DataService{
     
     private var _REF_CARD = Firebase(url: "\(URL_BASE)/cards")
     
+    private var _REF_USERS_CARD = Firebase(url: "\(URL_BASE)/users/\(ds.uniqueUserId)/cards")
+    
     var REF_CARD:Firebase{
         get{
             return _REF_CARD
         }
     }
     
+    var REF_USERS_CARD:Firebase{
+        get{
+            return _REF_USERS_CARD
+        }
+    }
+
+    
     func createFirebaseCard(uid:String, var card:Dictionary<String, String>){
+        
         card["owner_unique_id"] = uid
         let cardReference = REF_CARD.childByAutoId()
         cardReference.setValue(card)
         
-
         let card_id:String = cardReference.key
-        print(card_id)
         
         let card_ref = [
-            "unique_id": card_id
+            card_id: true
         ]
         
-        let userReference = REF_USERS.childByAppendingPath(card_id)
-        
-        userReference.setValue(card_ref)
+        REF_USERS_CARD.setValue(card_ref)
+    }
+    
+    func updateFirebaseCard(card_unique_id:String, card:Dictionary<String, String>){
+        let specificCardRef = REF_CARD.childByAppendingPath(card_unique_id)
+        specificCardRef.updateChildValues(card)
+    }
+    
+    func removeFirebaseCard(card_unique_id:String){
         
     }
+    
+    
 }

@@ -14,6 +14,11 @@
 		A52860651C5C352C00D8DF5D /* FirebaseTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A52860631C5C352C00D8DF5D /* FirebaseTest.xcdatamodeld */; };
 		A52860671C5C352C00D8DF5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A52860661C5C352C00D8DF5D /* Assets.xcassets */; };
 		A528606A1C5C352C00D8DF5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A52860681C5C352C00D8DF5D /* LaunchScreen.storyboard */; };
+		A5BD5D6B1C5EC587001C1C07 /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD5D6A1C5EC587001C1C07 /* EmailService.swift */; };
+		A5BD5D6D1C5EC794001C1C07 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD5D6C1C5EC794001C1C07 /* ErrorHandling.swift */; };
+		A5BD5D6F1C5F0103001C1C07 /* FBObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD5D6E1C5F0103001C1C07 /* FBObject.swift */; };
+		A5BD5D711C5F0381001C1C07 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD5D701C5F0381001C1C07 /* TestViewController.swift */; };
+		A5BD5D751C5F1221001C1C07 /* FBQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD5D741C5F1221001C1C07 /* FBQuery.swift */; };
 		A5C4B9691C5C512A00F6E477 /* InitialSignInPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B9681C5C512A00F6E477 /* InitialSignInPage.swift */; };
 		A5C4B96B1C5C533A00F6E477 /* RedSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B96A1C5C533A00F6E477 /* RedSignInButton.swift */; };
 		A5C4B96D1C5C545000F6E477 /* GrayButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B96C1C5C545000F6E477 /* GrayButtons.swift */; };
@@ -28,7 +33,7 @@
 		A5C4B9861C5DE70800F6E477 /* EditBusinessCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B9851C5DE70800F6E477 /* EditBusinessCardViewController.swift */; };
 		A5C4B9881C5DE78400F6E477 /* EditBusinessCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B9871C5DE78400F6E477 /* EditBusinessCardTableViewCell.swift */; };
 		A5C4B98A1C5DEC3600F6E477 /* DDBusinessCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B9891C5DEC3600F6E477 /* DDBusinessCard.swift */; };
-		A5C4B98C1C5E8EAC00F6E477 /* DDUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B98B1C5E8EAC00F6E477 /* DDUser.swift */; };
+		A5C4B98C1C5E8EAC00F6E477 /* FBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B98B1C5E8EAC00F6E477 /* FBUser.swift */; };
 		A5C4B98E1C5EB4A200F6E477 /* BusinessCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B98D1C5EB4A200F6E477 /* BusinessCardService.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +49,11 @@
 		A52860691C5C352C00D8DF5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A528606B1C5C352C00D8DF5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A52860711C5C35BB00D8DF5D /* FirebaseTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FirebaseTest-Bridging-Header.h"; sourceTree = "<group>"; };
+		A5BD5D6A1C5EC587001C1C07 /* EmailService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailService.swift; sourceTree = "<group>"; };
+		A5BD5D6C1C5EC794001C1C07 /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
+		A5BD5D6E1C5F0103001C1C07 /* FBObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBObject.swift; sourceTree = "<group>"; };
+		A5BD5D701C5F0381001C1C07 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		A5BD5D741C5F1221001C1C07 /* FBQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBQuery.swift; sourceTree = "<group>"; };
 		A5C4B9681C5C512A00F6E477 /* InitialSignInPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialSignInPage.swift; sourceTree = "<group>"; };
 		A5C4B96A1C5C533A00F6E477 /* RedSignInButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedSignInButton.swift; sourceTree = "<group>"; };
 		A5C4B96C1C5C545000F6E477 /* GrayButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrayButtons.swift; sourceTree = "<group>"; };
@@ -58,7 +68,7 @@
 		A5C4B9851C5DE70800F6E477 /* EditBusinessCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditBusinessCardViewController.swift; sourceTree = "<group>"; };
 		A5C4B9871C5DE78400F6E477 /* EditBusinessCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditBusinessCardTableViewCell.swift; sourceTree = "<group>"; };
 		A5C4B9891C5DEC3600F6E477 /* DDBusinessCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBusinessCard.swift; sourceTree = "<group>"; };
-		A5C4B98B1C5E8EAC00F6E477 /* DDUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDUser.swift; sourceTree = "<group>"; };
+		A5C4B98B1C5E8EAC00F6E477 /* FBUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBUser.swift; sourceTree = "<group>"; };
 		A5C4B98D1C5EB4A200F6E477 /* BusinessCardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCardService.swift; sourceTree = "<group>"; };
 		E81D8C4698E324D1AD8BA948 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -125,6 +135,7 @@
 				A528606B1C5C352C00D8DF5D /* Info.plist */,
 				A52860631C5C352C00D8DF5D /* FirebaseTest.xcdatamodeld */,
 				A52860711C5C35BB00D8DF5D /* FirebaseTest-Bridging-Header.h */,
+				A5BD5D701C5F0381001C1C07 /* TestViewController.swift */,
 			);
 			name = BConnectTo;
 			path = FirebaseTest;
@@ -134,7 +145,9 @@
 			isa = PBXGroup;
 			children = (
 				A5C4B9891C5DEC3600F6E477 /* DDBusinessCard.swift */,
-				A5C4B98B1C5E8EAC00F6E477 /* DDUser.swift */,
+				A5BD5D6E1C5F0103001C1C07 /* FBObject.swift */,
+				A5BD5D741C5F1221001C1C07 /* FBQuery.swift */,
+				A5C4B98B1C5E8EAC00F6E477 /* FBUser.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -165,6 +178,7 @@
 			children = (
 				A5C4B9751C5D618F00F6E477 /* DataService.swift */,
 				A5C4B98D1C5EB4A200F6E477 /* BusinessCardService.swift */,
+				A5BD5D6A1C5EC587001C1C07 /* EmailService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -173,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				A5C4B9781C5D631200F6E477 /* Constants.swift */,
+				A5BD5D6C1C5EC794001C1C07 /* ErrorHandling.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -330,22 +345,27 @@
 			files = (
 				A5C4B9711C5C793800F6E477 /* LoginViewController.swift in Sources */,
 				A5C4B98A1C5DEC3600F6E477 /* DDBusinessCard.swift in Sources */,
+				A5BD5D711C5F0381001C1C07 /* TestViewController.swift in Sources */,
 				A5C4B9881C5DE78400F6E477 /* EditBusinessCardTableViewCell.swift in Sources */,
 				A52860651C5C352C00D8DF5D /* FirebaseTest.xcdatamodeld in Sources */,
 				A5C4B96D1C5C545000F6E477 /* GrayButtons.swift in Sources */,
 				A5C4B96F1C5C6F5E00F6E477 /* SignUpViewController.swift in Sources */,
+				A5BD5D6F1C5F0103001C1C07 /* FBObject.swift in Sources */,
 				A5C4B98E1C5EB4A200F6E477 /* BusinessCardService.swift in Sources */,
 				A528605F1C5C352C00D8DF5D /* ViewController.swift in Sources */,
 				A5C4B9761C5D618F00F6E477 /* DataService.swift in Sources */,
+				A5BD5D6D1C5EC794001C1C07 /* ErrorHandling.swift in Sources */,
 				A5C4B9691C5C512A00F6E477 /* InitialSignInPage.swift in Sources */,
 				A5C4B9841C5DE52600F6E477 /* BCardTableViewCell.swift in Sources */,
+				A5BD5D751C5F1221001C1C07 /* FBQuery.swift in Sources */,
 				A5C4B97E1C5DE47400F6E477 /* BCardViewController.swift in Sources */,
 				A5C4B9861C5DE70800F6E477 /* EditBusinessCardViewController.swift in Sources */,
-				A5C4B98C1C5E8EAC00F6E477 /* DDUser.swift in Sources */,
+				A5C4B98C1C5E8EAC00F6E477 /* FBUser.swift in Sources */,
 				A528605D1C5C352C00D8DF5D /* AppDelegate.swift in Sources */,
 				A5C4B96B1C5C533A00F6E477 /* RedSignInButton.swift in Sources */,
 				A5C4B97C1C5DE26F00F6E477 /* CircularImage.swift in Sources */,
 				A5C4B9731C5D46E600F6E477 /* bConnect.swift in Sources */,
+				A5BD5D6B1C5EC587001C1C07 /* EmailService.swift in Sources */,
 				A5C4B9791C5D631200F6E477 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,13 +11,29 @@ import Foundation
 class DataService{
     static let ds = DataService()
     
+    //MARK: Private Variables
     private var _REF_USERS = Firebase(url: "\(URL_BASE)/users")
     
+    private var _user_unique_id = NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID)
+    
+    //MARK: Setters and Getters
     var REF_USERS:Firebase{
         return _REF_USERS
     }
     
+    var uniqueUserId:String{
+        get{
+            if let uid = _user_unique_id{
+                return uid as! String
+            }else{
+                return ""
+            }
+        }
+    }
+    
     func createFireBaseUser(uid: String, user: Dictionary<String, String>){
+        print("creating the fire base user with user id below")
+        print(uid)
         REF_USERS.childByAppendingPath(uid).setValue(user)
     }
     

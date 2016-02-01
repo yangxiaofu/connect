@@ -25,9 +25,28 @@ class SignUpViewController: UIViewController {
                     
                     var user = Dictionary<String, String>()
                     
-                    user[User.FullName] = self.fullName.text!
-                    user[User.Email] = self.username.text!
+                    user = [
+                        User.FullName: self.fullName.text!
+                    ]
+                    
                     DataService.ds.createFireBaseUser(uid, user: user)
+                    
+                    do{
+                        var email = Dictionary<String, String>()
+
+                        email = [
+                            "type": "Work",
+                            "email": self.username.text!
+                        ]
+
+                        try EmailService.es.createFireBaseEmail(uid, email: email)
+                        
+                    } catch {
+                        
+                        print("There was some type of error")
+                        
+                    }
+                    
                     
                     self.performSegueWithIdentifier(Storyboard.SignedUp, sender: self)
                 }else{
@@ -36,6 +55,7 @@ class SignUpViewController: UIViewController {
                     self.presentViewController(alert, animated: true, completion: nil)
                 }
             })
+            
             
         }else{
             print("There was an error loggin in")

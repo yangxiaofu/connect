@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9vD-8i-S4s">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -100,6 +100,24 @@
             </objects>
             <point key="canvasLocation" x="492" y="429"/>
         </scene>
+        <!--Test-->
+        <scene sceneID="ubh-Wo-uyA">
+            <objects>
+                <viewController title="Test" id="9vD-8i-S4s" customClass="TestViewController" customModule="BConnectTo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="d87-29-Zl1"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Wt-L0-ZbP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3IX-Jr-U5b">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="01g-RR-QBG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1603" y="242"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="K6A-tg-AnU">
             <objects>
@@ -137,10 +155,10 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="l9j-ae-sGa">
                                 <rect key="frame" x="258" y="230" width="84" height="141"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="foO-dJ-JMo">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="foO-dJ-JMo">
                                         <rect key="frame" x="5" y="0.0" width="75" height="21"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="bConnect" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4CE-Do-hl1" customClass="bConnect" customModule="BConnectTo" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bConnect" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4CE-Do-hl1" customClass="bConnect" customModule="BConnectTo" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -198,10 +216,10 @@
                                             </mask>
                                         </variation>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TOQ-87-0ib">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TOQ-87-0ib">
                                         <rect key="frame" x="14" y="31" width="56" height="30"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xMk-t3-nTP">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xMk-t3-nTP">
                                                 <rect key="frame" x="0.0" y="0.0" width="56" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
@@ -234,10 +252,10 @@
                                             </mask>
                                         </variation>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fta-PY-1qo">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fta-PY-1qo">
                                         <rect key="frame" x="0.0" y="71" width="84" height="30"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uhc-Wm-2EA">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uhc-Wm-2EA">
                                                 <rect key="frame" x="0.0" y="0.0" width="84" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -270,7 +288,7 @@
                                             </mask>
                                         </variation>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JmZ-kx-2CY">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JmZ-kx-2CY">
                                         <rect key="frame" x="23" y="111" width="38" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppO-hc-ZuP" customClass="RedSignInButton" customModule="BConnectTo" customModuleProvider="target">
@@ -1083,16 +1101,16 @@
                                         <exclude reference="Zwk-Fh-t6E"/>
                                         <exclude reference="qOr-cA-43D"/>
                                         <exclude reference="r26-Xh-BPf"/>
-                                        <exclude reference="8nM-ce-uW2"/>
-                                        <exclude reference="EfW-mB-wMp"/>
-                                        <exclude reference="lYG-wV-lHr"/>
-                                        <exclude reference="n5P-VC-0f8"/>
+                                        <exclude reference="HEt-0g-QCN"/>
+                                        <exclude reference="UWj-SU-GME"/>
                                         <exclude reference="Hm7-pR-5cG"/>
                                         <exclude reference="I9s-9V-BTN"/>
                                         <exclude reference="LhM-rU-Sec"/>
                                         <exclude reference="aat-uo-ZUn"/>
-                                        <exclude reference="HEt-0g-QCN"/>
-                                        <exclude reference="UWj-SU-GME"/>
+                                        <exclude reference="8nM-ce-uW2"/>
+                                        <exclude reference="EfW-mB-wMp"/>
+                                        <exclude reference="lYG-wV-lHr"/>
+                                        <exclude reference="n5P-VC-0f8"/>
                                         <exclude reference="8Pm-U9-NE2"/>
                                         <exclude reference="9Ha-oA-yDs"/>
                                         <exclude reference="Ncs-jU-pg8"/>
@@ -1108,10 +1126,10 @@
                                     <mask key="constraints">
                                         <include reference="FlQ-NB-sqf"/>
                                         <include reference="r26-Xh-BPf"/>
-                                        <include reference="EfW-mB-wMp"/>
-                                        <include reference="n5P-VC-0f8"/>
                                         <include reference="Hm7-pR-5cG"/>
                                         <include reference="I9s-9V-BTN"/>
+                                        <include reference="EfW-mB-wMp"/>
+                                        <include reference="n5P-VC-0f8"/>
                                         <include reference="8Pm-U9-NE2"/>
                                         <include reference="9Ha-oA-yDs"/>
                                         <include reference="NRD-nz-9Gr"/>
@@ -1123,10 +1141,10 @@
                                     <mask key="constraints">
                                         <include reference="Zwk-Fh-t6E"/>
                                         <include reference="qOr-cA-43D"/>
-                                        <include reference="8nM-ce-uW2"/>
-                                        <include reference="lYG-wV-lHr"/>
                                         <include reference="HEt-0g-QCN"/>
                                         <include reference="UWj-SU-GME"/>
+                                        <include reference="8nM-ce-uW2"/>
+                                        <include reference="lYG-wV-lHr"/>
                                         <include reference="Ncs-jU-pg8"/>
                                         <include reference="UXa-Dv-ki9"/>
                                         <include reference="BoL-Y4-O3P"/>
@@ -1210,6 +1228,6 @@
         <image name="red" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TOu-3v-7Xv"/>
+        <segue reference="OAh-3a-lfh"/>
     </inferredMetricsTieBreakers>
 </document>
