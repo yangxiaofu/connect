@@ -11,16 +11,31 @@ import Foundation
 
 class FBUser:FBObject{
     private var _URL_BASE_USERS:String = "\(URL_BASE)/Users"
+    private var _loggedIn:Bool = false
     private var _objectId:String?
     private var _username:String?
     private var _password:String?
     private var _email:String?
     private var _dictionary = Dictionary<String, AnyObject>()
+    private var _currentUser = Dictionary<String, AnyObject>()
+    private var _userImageUrl:String?
     
     //MARK: - Setters and Getters
+    
+    var loggedIn:Bool{
+        get{
+            return self._loggedIn
+        }
+        set{
+            self._loggedIn = newValue
+        }
+    }
     var objectId:String{
         get{
             return self._objectId!
+        }
+        set{
+            self._objectId = newValue
         }
     }
     
@@ -60,6 +75,15 @@ class FBUser:FBObject{
         }
         set{
             self._dictionary = newValue
+        }
+    }
+    
+    var userImageUrl:String{
+        get{
+            return self._userImageUrl!
+        }
+        set{
+            self._userImageUrl = newValue
         }
     }
     
@@ -107,6 +131,57 @@ class FBUser:FBObject{
                         print(error)
                     }
                 })
+            }
+        }
+    }
+    
+    func logOut(){
+        ref.unauth()
+    }
+    
+    func logInWithUsernameInBackground(username:String, password:String, completionWithBlock:(user: FBUser?, error:String) -> ()){
+        
+        let ref = Firebase(url: "\(URL_BASE)")
+        
+        ref.authUser(username, password: password) { (error , AuthData) -> Void in
+            if error != nil{
+                //An error has occurred
+                if error.code == ERROR_CODE_INVALID_PASSWORD{
+                    completionWithBlock(user: nil, error: "User has an invalid password")
+                }else if error.code == ERROR_CODE_INVALID_USER{
+                    completionWithBlock(user: nil, error: "This user does not exist")
+                }else if error.code == ERROR_CODE_INVALID_EMAIL{
+                    completionWithBlock(user: nil, error: "This is an invalid email")
+                }else{
+                    print("Need to update the error handler")
+                    print(error)
+                }
+                
+            }else{
+                //user is logged in, check authData for data
+                
+                let user = FBUser()
+                
+                user.objectId = AuthData.uid
+
+                if let e = AuthData.providerData["email"]{
+                    user.email = e as! String
+                }else{
+                    user.email = ""
+                }
+                
+                if let uImage = AuthData.providerData["profileImageURL"]{
+                    user.userImageUrl = uImage as! String
+                }
+                
+                if let u = AuthData.providerData["email"]{
+                    user.username = u as! String
+                }else{
+                    user.username = ""
+                }
+                
+                completionWithBlock(user: user, error: "")
+            
             }
         }
         

@@ -9,6 +9,8 @@
 import Foundation
 
 class FBObject{
+    private var _date = NSDate()
+    
     private var _ref = Firebase(url: URL_BASE)
     
     private var _URL_BASE_CLASSNAME:String?
@@ -17,7 +19,19 @@ class FBObject{
     
     private var _className:String?
     
+    private var _userId:String?
+    
     //MARK: - Getters and Setters
+    
+    var userId:String{
+        get{
+            return self._userId!
+        }
+        set{
+            self._userId = newValue
+            self._dictionary["userId"] = newValue
+        }
+    }
     
     var className:String{
         get{
@@ -72,13 +86,48 @@ class FBObject{
     
     func saveInBackgroundWithBlock(completionWithBlock:(success:Bool, error: String) -> ()){
         
+        var userId:String = ""
+        
         let objectsRef = ref.childByAppendingPath(self._className)
         
         let objects1Ref = objectsRef?.childByAutoId()
         
         objects1Ref?.setValue(self._dictionary)
+
         
-        completionWithBlock(success: true, error: "")
+        if let uId = self._userId{
+            userId = uId as! String
+        }
+        if userId != ""{
+            if let tempId = objects1Ref?.key{
+                let id = tempId
+                
+                let URL_BASE_USER_CLASSNAME = "\(URL_BASE)/Users/\(userId)/\(self._className!)"
+                
+                let userRef = Firebase(url: "\(URL_BASE_USER_CLASSNAME)")
+                //TODO: - UPDATE THE VALUE AND DO NOT OVERWRITE
+                let objectDictionary = [
+                    id: true
+                ]
+                
+                userRef.updateChildValues(objectDictionary)
+                
+                completionWithBlock(success: true, error: "")
+            }else{
+                completionWithBlock(success: false, error: "There was an error trying to save the object key into the user field.")
+            }
+        }else{
+            //do nothing
+            completionWithBlock(success: true, error: "")
+            print("This shoudl save the informaiton in the database the right way")
+        }
+            
+//        }else{
+//            completionWithBlock(success: false, error: "There is no user logged in");
+//        }
+//        
     }
+    
+    
     
 }

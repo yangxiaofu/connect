@@ -12,6 +12,18 @@ class TestViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        var user = FBUser()
+//        
+//        user.password = "1234"
+//        user.username = "fudaviddong@gmail.com"
+//        
+//        user.logInWithUsernameInBackground("fudaviddon", password: "1234") { (user, error) -> () in
+//            print(error )
+//            print("spacer")
+//            print(user)
+//        }
+// 
+        
         
 //        var user = FBUser()
 //        
@@ -28,17 +40,31 @@ class TestViewController: UIViewController {
 //                print(error)
 //            }
 //        }
-        
+//        
         let object = FBObject(className: "Email")
-        object["playerName"] = "Rob"
-        object["userId"] = "8c2da262-1af2-428f-9b06-224ee5530031"
+        object[Email.Email] = "fudaviddong@gmail.com"
+        
         object.saveInBackgroundWithBlock { (success, error) -> () in
             if success{
-                print("Success")
+                print("This was a success saving the information")
             }else{
-                print("Failed")
+                print(error)
             }
         }
+        
+        let object2 = FBObject(className: "Phone")
+        object2.userId = "8c2da262-1af2-428f-9b06-224ee5530031"
+        object2[Email.Email] = "510-730-0660"
+        
+        object2.saveInBackgroundWithBlock { (success, error) -> () in
+            if success{
+                print("This was a success saving the information")
+            }else{
+                print(error)
+            }
+        }
+
+        
 //
 //        let phoneObject = FBObject(className: "PhoneNumbers")
 //        phoneObject["type"] = "Work"

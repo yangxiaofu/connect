@@ -24,6 +24,8 @@ struct Storyboard {
 let ERROR_CODE_EMAIL_TAKEN = -9
 let ERROR_CODE_INVALID_PASSWORD = -6
 let ERROR_CODE_FIREBASE_AUTHENTICATION = -16
+let ERROR_CODE_INVALID_USER = -8
+let ERROR_CODE_INVALID_EMAIL = -5
 
 //MARK: - Data Structures within Firebase
 
@@ -48,4 +50,9 @@ struct Email{
     static let Email = "email"
 }
 
-let EMAIL_TYPE = "type"
+struct Phone{
+    static let OwnerUniqueId = "owner_unique_id"
+    static let UniqueId = "unique_id"
+    static let Type = "type"
+    static let Email = "email"
+}

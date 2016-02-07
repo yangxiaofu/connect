@@ -25,13 +25,16 @@ class FBQuery:FBObject{
         URL_BASE_CLASSNAME = "\(URL_BASE)/\(className)"
     }
     
+    func whereKey(key:String, equalTo:String){
+        
+    }
+    
     func getObjectInBackgroundWithId(id:String, completionWithBlock:(object: AnyObject, error:String ) -> ()){
         _URL_BASE_CLASSNAME_ID  = "\(URL_BASE_CLASSNAME)/\(id)"
         var ref = Firebase(url: self._URL_BASE_CLASSNAME_ID)
         
         ref.observeSingleEventOfType(.Value, withBlock: { (snapshot) -> Void in
             completionWithBlock(object: snapshot.value, error: "")
-            
         })
             
         { (error ) -> Void in
@@ -39,7 +42,13 @@ class FBQuery:FBObject{
             completionWithBlock(object: "", error: "There was an error")
         
         }
-        
+    }
+    
+    func getObjectInBackgroundWithBlock(completionWithBlock:(object:AnyObject, error:String) -> ()){
         
     }
+    
+    
+    
+    
 }
