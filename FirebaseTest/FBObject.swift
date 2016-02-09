@@ -121,13 +121,8 @@ class FBObject{
             completionWithBlock(success: true, error: "")
             print("This shoudl save the informaiton in the database the right way")
         }
-            
-//        }else{
-//            completionWithBlock(success: false, error: "There is no user logged in");
-//        }
-//        
+        
     }
-    
     
     
 }

@@ -12,6 +12,28 @@ class TestViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let query = FBQuery(className: "Users")
+        query.atBranch(branchName: "Phone")
+        
+        query.getObjectsAtBranchWithinIdWithBlock("8c2da262-1af2-428f-9b06-224ee5530031") { (objects, error) -> () in
+            let dictionary = objects as! NSDictionary
+            
+            for (key, value) in dictionary{
+                print(key)
+                print(value)
+            }
+        }
+
+        
+        let query2 = FBQuery(className: "Users")
+
+        
+        query2.getObjectInBackgroundWithId("8c2da262-1af2-428f-9b06-224ee5530031", completionWithBlock: { (object, error) -> () in
+            print(object)
+            print(object.valueForKey("company"))
+        })
+        
 //        var user = FBUser()
 //        
 //        user.password = "1234"
@@ -41,28 +63,28 @@ class TestViewController: UIViewController {
 //            }
 //        }
 //        
-        let object = FBObject(className: "Email")
-        object[Email.Email] = "fudaviddong@gmail.com"
-        
-        object.saveInBackgroundWithBlock { (success, error) -> () in
-            if success{
-                print("This was a success saving the information")
-            }else{
-                print(error)
-            }
-        }
-        
-        let object2 = FBObject(className: "Phone")
-        object2.userId = "8c2da262-1af2-428f-9b06-224ee5530031"
-        object2[Email.Email] = "510-730-0660"
-        
-        object2.saveInBackgroundWithBlock { (success, error) -> () in
-            if success{
-                print("This was a success saving the information")
-            }else{
-                print(error)
-            }
-        }
+//        let object = FBObject(className: "Email")
+//        object[Email.Email] = "fudaviddong@gmail.com"
+//        
+//        object.saveInBackgroundWithBlock { (success, error) -> () in
+//            if success{
+//                print("This was a success saving the information")
+//            }else{
+//                print(error)
+//            }
+//        }
+//        
+//        let object2 = FBObject(className: "Phone")
+//        object2.userId = "8c2da262-1af2-428f-9b06-224ee5530031"
+//        object2[Email.Email] = "510-730-0660"
+//        
+//        object2.saveInBackgroundWithBlock { (success, error) -> () in
+//            if success{
+//                print("This was a success saving the information")
+//            }else{
+//                print(error)
+//            }
+//        }
 
         
 //
