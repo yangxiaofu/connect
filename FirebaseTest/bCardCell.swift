@@ -8,17 +8,19 @@
 
 import UIKit
 
-class BCardTableViewCell: UITableViewCell {
-
-    @IBOutlet var userImage: CircularImage!
-   
-    @IBOutlet var company: bConnect!
+class bCardCell: UITableViewCell {
     
-    @IBOutlet var name: UILabel!
+    @IBOutlet var userImage: CircularImage!
+    
+    @IBOutlet var company: UILabel!
+    
+    @IBOutlet var fullName: UILabel!
     
     @IBOutlet var headline: UILabel!
     
     @IBOutlet var email: UILabel!
     
     @IBOutlet var number: UILabel!
+    
+    
 }

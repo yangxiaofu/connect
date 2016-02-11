@@ -8,13 +8,15 @@
 
 import UIKit
 
-class EditBusinessCardTableViewCell: UITableViewCell {
-
+class EditInfoTableViewCell: UITableViewCell {
+    
     @IBOutlet var userImage: UIImageView!
     
     @IBOutlet var company: UITextField!
     
-    @IBOutlet var name: UITextField!
-
+    @IBOutlet var fullName: UITextField!
+    
     @IBOutlet var headline: UITextField!
+    
 }
+

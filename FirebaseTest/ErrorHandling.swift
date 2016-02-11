@@ -14,3 +14,17 @@ enum createFireBaseEmailError:ErrorType{
     case EmailsAlreadyExists
     case UniqueIDNonExistent
 }
+
+//MARK: - Users Error Handling
+enum UpdateCompanyError:ErrorType{
+    case InvalidCompanyName
+}
+
+enum UpdateHeadlineError:ErrorType{
+    case InvalidHeadline
+}
+
+enum UpdateNameError:ErrorType{
+    case InvalidName
+    case NoNamesProvided
+}

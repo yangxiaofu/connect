@@ -8,6 +8,8 @@
 
 import UIKit
 
+var user = FBUser()
+
 class LoginViewController: UIViewController {
     
     @IBOutlet var email: UITextField!
@@ -16,15 +18,18 @@ class LoginViewController: UIViewController {
 
     @IBAction func login(sender: AnyObject) {
         if email.text != "" && password.text != ""{
-            DataService.ds.logIn(email.text!, password: password.text!) { (success, error) -> () in
-                if success {
+            let login = FBUser()
+            login.logInWithUsernameInBackground(email.text!, password: password.text!, completionWithBlock: { (myUser, error) -> () in
+                if error == ""{
+                    user = myUser!
                     self.performSegueWithIdentifier(Storyboard.LoggedIn, sender: self)
                 }else{
                     let alert = UIAlertController(title: "", message: error, preferredStyle: .Alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil ))
+                    alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
                 }
-            }
+
+            })
         }
         
         

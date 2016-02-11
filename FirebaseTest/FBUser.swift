@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class FBUser:FBObject{
     private var _URL_BASE_USERS:String = "\(URL_BASE)/Users"
     private var _loggedIn:Bool = false

@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		9E15E983A3707D15D73924AA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E81D8C4698E324D1AD8BA948 /* libPods.a */; };
+		A507F6861C6AFD8C003B7755 /* phoneCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F6851C6AFD8C003B7755 /* phoneCellTableViewCell.swift */; };
+		A507F6881C6AFDAB003B7755 /* EmailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F6871C6AFDAB003B7755 /* EmailTableViewCell.swift */; };
+		A507F68A1C6AFDCC003B7755 /* SocialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F6891C6AFDCC003B7755 /* SocialTableViewCell.swift */; };
+		A507F68C1C6AFF16003B7755 /* addInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F68B1C6AFF16003B7755 /* addInfoViewController.swift */; };
+		A507F68E1C6B0002003B7755 /* ItemTypesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F68D1C6B0002003B7755 /* ItemTypesTableViewController.swift */; };
+		A507F6901C6B0130003B7755 /* PhoneNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F68F1C6B0130003B7755 /* PhoneNumbers.swift */; };
+		A507F6921C6B021A003B7755 /* Emails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F6911C6B021A003B7755 /* Emails.swift */; };
+		A507F6941C6B03F5003B7755 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F6931C6B03F5003B7755 /* Users.swift */; };
+		A507F6961C6B055F003B7755 /* SelectImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F6951C6B055F003B7755 /* SelectImageTableViewController.swift */; };
+		A507F6981C6C5E73003B7755 /* DDUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F6971C6C5E73003B7755 /* DDUser.swift */; };
 		A528605D1C5C352C00D8DF5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528605C1C5C352C00D8DF5D /* AppDelegate.swift */; };
 		A528605F1C5C352C00D8DF5D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528605E1C5C352C00D8DF5D /* ViewController.swift */; };
 		A52860621C5C352C00D8DF5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A52860601C5C352C00D8DF5D /* Main.storyboard */; };
@@ -28,10 +38,10 @@
 		A5C4B9761C5D618F00F6E477 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B9751C5D618F00F6E477 /* DataService.swift */; };
 		A5C4B9791C5D631200F6E477 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B9781C5D631200F6E477 /* Constants.swift */; };
 		A5C4B97C1C5DE26F00F6E477 /* CircularImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B97B1C5DE26F00F6E477 /* CircularImage.swift */; };
-		A5C4B97E1C5DE47400F6E477 /* BCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B97D1C5DE47400F6E477 /* BCardViewController.swift */; };
-		A5C4B9841C5DE52600F6E477 /* BCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B9831C5DE52600F6E477 /* BCardTableViewCell.swift */; };
-		A5C4B9861C5DE70800F6E477 /* EditBusinessCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B9851C5DE70800F6E477 /* EditBusinessCardViewController.swift */; };
-		A5C4B9881C5DE78400F6E477 /* EditBusinessCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B9871C5DE78400F6E477 /* EditBusinessCardTableViewCell.swift */; };
+		A5C4B97E1C5DE47400F6E477 /* bCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B97D1C5DE47400F6E477 /* bCardViewController.swift */; };
+		A5C4B9841C5DE52600F6E477 /* bCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B9831C5DE52600F6E477 /* bCardCell.swift */; };
+		A5C4B9861C5DE70800F6E477 /* EditBCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B9851C5DE70800F6E477 /* EditBCardViewController.swift */; };
+		A5C4B9881C5DE78400F6E477 /* EditInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B9871C5DE78400F6E477 /* EditInfoTableViewCell.swift */; };
 		A5C4B98A1C5DEC3600F6E477 /* DDBusinessCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B9891C5DEC3600F6E477 /* DDBusinessCard.swift */; };
 		A5C4B98C1C5E8EAC00F6E477 /* FBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B98B1C5E8EAC00F6E477 /* FBUser.swift */; };
 		A5C4B98E1C5EB4A200F6E477 /* BusinessCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B98D1C5EB4A200F6E477 /* BusinessCardService.swift */; };
@@ -40,6 +50,16 @@
 /* Begin PBXFileReference section */
 		7460759236021646686A79AF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7531F2934B557E6FAA3EFB7F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		A507F6851C6AFD8C003B7755 /* phoneCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = phoneCellTableViewCell.swift; sourceTree = "<group>"; };
+		A507F6871C6AFDAB003B7755 /* EmailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailTableViewCell.swift; sourceTree = "<group>"; };
+		A507F6891C6AFDCC003B7755 /* SocialTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialTableViewCell.swift; sourceTree = "<group>"; };
+		A507F68B1C6AFF16003B7755 /* addInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addInfoViewController.swift; sourceTree = "<group>"; };
+		A507F68D1C6B0002003B7755 /* ItemTypesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTypesTableViewController.swift; sourceTree = "<group>"; };
+		A507F68F1C6B0130003B7755 /* PhoneNumbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumbers.swift; sourceTree = "<group>"; };
+		A507F6911C6B021A003B7755 /* Emails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emails.swift; sourceTree = "<group>"; };
+		A507F6931C6B03F5003B7755 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		A507F6951C6B055F003B7755 /* SelectImageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectImageTableViewController.swift; sourceTree = "<group>"; };
+		A507F6971C6C5E73003B7755 /* DDUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDUser.swift; sourceTree = "<group>"; };
 		A52860591C5C352C00D8DF5D /* BConnectTo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BConnectTo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A528605C1C5C352C00D8DF5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A528605E1C5C352C00D8DF5D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,10 +83,10 @@
 		A5C4B9751C5D618F00F6E477 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		A5C4B9781C5D631200F6E477 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A5C4B97B1C5DE26F00F6E477 /* CircularImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularImage.swift; sourceTree = "<group>"; };
-		A5C4B97D1C5DE47400F6E477 /* BCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCardViewController.swift; sourceTree = "<group>"; };
-		A5C4B9831C5DE52600F6E477 /* BCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCardTableViewCell.swift; sourceTree = "<group>"; };
-		A5C4B9851C5DE70800F6E477 /* EditBusinessCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditBusinessCardViewController.swift; sourceTree = "<group>"; };
-		A5C4B9871C5DE78400F6E477 /* EditBusinessCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditBusinessCardTableViewCell.swift; sourceTree = "<group>"; };
+		A5C4B97D1C5DE47400F6E477 /* bCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bCardViewController.swift; sourceTree = "<group>"; };
+		A5C4B9831C5DE52600F6E477 /* bCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bCardCell.swift; sourceTree = "<group>"; };
+		A5C4B9851C5DE70800F6E477 /* EditBCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditBCardViewController.swift; sourceTree = "<group>"; };
+		A5C4B9871C5DE78400F6E477 /* EditInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditInfoTableViewCell.swift; sourceTree = "<group>"; };
 		A5C4B9891C5DEC3600F6E477 /* DDBusinessCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBusinessCard.swift; sourceTree = "<group>"; };
 		A5C4B98B1C5E8EAC00F6E477 /* FBUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBUser.swift; sourceTree = "<group>"; };
 		A5C4B98D1C5EB4A200F6E477 /* BusinessCardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCardService.swift; sourceTree = "<group>"; };
@@ -144,10 +164,14 @@
 		A5C4B9631C5C4FF600F6E477 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A507F6971C6C5E73003B7755 /* DDUser.swift */,
 				A5C4B9891C5DEC3600F6E477 /* DDBusinessCard.swift */,
 				A5BD5D6E1C5F0103001C1C07 /* FBObject.swift */,
 				A5BD5D741C5F1221001C1C07 /* FBQuery.swift */,
 				A5C4B98B1C5E8EAC00F6E477 /* FBUser.swift */,
+				A507F6931C6B03F5003B7755 /* Users.swift */,
+				A507F68F1C6B0130003B7755 /* PhoneNumbers.swift */,
+				A507F6911C6B021A003B7755 /* Emails.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -196,8 +220,11 @@
 			isa = PBXGroup;
 			children = (
 				A5C4B9821C5DE51100F6E477 /* Cells */,
-				A5C4B97D1C5DE47400F6E477 /* BCardViewController.swift */,
-				A5C4B9851C5DE70800F6E477 /* EditBusinessCardViewController.swift */,
+				A507F6951C6B055F003B7755 /* SelectImageTableViewController.swift */,
+				A5C4B97D1C5DE47400F6E477 /* bCardViewController.swift */,
+				A5C4B9851C5DE70800F6E477 /* EditBCardViewController.swift */,
+				A507F68B1C6AFF16003B7755 /* addInfoViewController.swift */,
+				A507F68D1C6B0002003B7755 /* ItemTypesTableViewController.swift */,
 			);
 			name = BCard;
 			sourceTree = "<group>";
@@ -215,8 +242,11 @@
 		A5C4B9821C5DE51100F6E477 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				A5C4B9831C5DE52600F6E477 /* BCardTableViewCell.swift */,
-				A5C4B9871C5DE78400F6E477 /* EditBusinessCardTableViewCell.swift */,
+				A5C4B9831C5DE52600F6E477 /* bCardCell.swift */,
+				A5C4B9871C5DE78400F6E477 /* EditInfoTableViewCell.swift */,
+				A507F6851C6AFD8C003B7755 /* phoneCellTableViewCell.swift */,
+				A507F6871C6AFDAB003B7755 /* EmailTableViewCell.swift */,
+				A507F6891C6AFDCC003B7755 /* SocialTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -343,12 +373,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A507F6881C6AFDAB003B7755 /* EmailTableViewCell.swift in Sources */,
 				A5C4B9711C5C793800F6E477 /* LoginViewController.swift in Sources */,
 				A5C4B98A1C5DEC3600F6E477 /* DDBusinessCard.swift in Sources */,
 				A5BD5D711C5F0381001C1C07 /* TestViewController.swift in Sources */,
-				A5C4B9881C5DE78400F6E477 /* EditBusinessCardTableViewCell.swift in Sources */,
+				A5C4B9881C5DE78400F6E477 /* EditInfoTableViewCell.swift in Sources */,
 				A52860651C5C352C00D8DF5D /* FirebaseTest.xcdatamodeld in Sources */,
+				A507F68C1C6AFF16003B7755 /* addInfoViewController.swift in Sources */,
+				A507F6901C6B0130003B7755 /* PhoneNumbers.swift in Sources */,
+				A507F6961C6B055F003B7755 /* SelectImageTableViewController.swift in Sources */,
 				A5C4B96D1C5C545000F6E477 /* GrayButtons.swift in Sources */,
+				A507F68E1C6B0002003B7755 /* ItemTypesTableViewController.swift in Sources */,
+				A507F68A1C6AFDCC003B7755 /* SocialTableViewCell.swift in Sources */,
+				A507F6981C6C5E73003B7755 /* DDUser.swift in Sources */,
 				A5C4B96F1C5C6F5E00F6E477 /* SignUpViewController.swift in Sources */,
 				A5BD5D6F1C5F0103001C1C07 /* FBObject.swift in Sources */,
 				A5C4B98E1C5EB4A200F6E477 /* BusinessCardService.swift in Sources */,
@@ -356,10 +393,13 @@
 				A5C4B9761C5D618F00F6E477 /* DataService.swift in Sources */,
 				A5BD5D6D1C5EC794001C1C07 /* ErrorHandling.swift in Sources */,
 				A5C4B9691C5C512A00F6E477 /* InitialSignInPage.swift in Sources */,
-				A5C4B9841C5DE52600F6E477 /* BCardTableViewCell.swift in Sources */,
+				A507F6861C6AFD8C003B7755 /* phoneCellTableViewCell.swift in Sources */,
+				A5C4B9841C5DE52600F6E477 /* bCardCell.swift in Sources */,
 				A5BD5D751C5F1221001C1C07 /* FBQuery.swift in Sources */,
-				A5C4B97E1C5DE47400F6E477 /* BCardViewController.swift in Sources */,
-				A5C4B9861C5DE70800F6E477 /* EditBusinessCardViewController.swift in Sources */,
+				A5C4B97E1C5DE47400F6E477 /* bCardViewController.swift in Sources */,
+				A5C4B9861C5DE70800F6E477 /* EditBCardViewController.swift in Sources */,
+				A507F6921C6B021A003B7755 /* Emails.swift in Sources */,
+				A507F6941C6B03F5003B7755 /* Users.swift in Sources */,
 				A5C4B98C1C5E8EAC00F6E477 /* FBUser.swift in Sources */,
 				A528605D1C5C352C00D8DF5D /* AppDelegate.swift in Sources */,
 				A5C4B96B1C5C533A00F6E477 /* RedSignInButton.swift in Sources */,
