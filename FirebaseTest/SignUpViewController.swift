@@ -18,45 +18,44 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet var password: UITextField!
     
+    //MARK: - Display Alert
+    func displayAlert(title:String, message:String){
+        let alert = UIAlertController(title: title, message: message , preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    
     @IBAction func signUp(sender: AnyObject) {
         if fullName.text != "" && username.text != "" && password.text != ""{
-            DataService.ds.signUp(username.text!, password: password.text!, completionWithBlock: { (uid, succeeded, error) -> () in
+            
+            let signUp = FBUser()
+            
+            signUp.email = username.text!
+
+            signUp.password = password.text!
+            
+            signUp.signUpInBackgroundWithBlock({ (succeeded, error) -> () in
                 if succeeded{
+                    let object = FBObject(className: "Email")
+//                    object.userId
+                    object["email"] = self.username.text!
                     
-                    var user = Dictionary<String, String>()
-                    
-                    user = [
-                        User.FullName: self.fullName.text!
-                    ]
-                    
-                    DataService.ds.createFireBaseUser(uid, user: user)
-                    
-                    do{
-                        var email = Dictionary<String, String>()
-
-                        email = [
-                            "type": "Work",
-                            "email": self.username.text!
-                        ]
-
-                        try EmailService.es.createFireBaseEmail(uid, email: email)
-                        
-                    } catch {
-                        
-                        print("There was some type of error")
-                        
-                    }
-                    
-                    
-                    self.performSegueWithIdentifier(Storyboard.SignedUp, sender: self)
+                    object.saveInBackgroundWithBlock({ (success, error) -> () in
+                        if success{
+                            print(success)
+                            print("Success")
+                            self.performSegueWithIdentifier(Storyboard.SignedUp, sender: self)
+                            
+                        }else{
+                            
+                            self.displayAlert("", message: error)
+                        }
+                    })
                 }else{
-                    let alert = UIAlertController(title: "", message: error, preferredStyle: .Alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    self.displayAlert("", message: error)
                 }
             })
-            
-            
         }else{
             print("There was an error loggin in")
         }

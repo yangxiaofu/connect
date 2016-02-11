@@ -106,16 +106,14 @@ class FBUser:FBObject{
         var ref = Firebase(url: self._URL_BASE_USERS)
         var _error = ""
         
-        //TODO: - GUARD STATEMENTS FOR ERROR HANDLINGS
-        
-        
         ref.createUser(self._email, password: self._password) { (error , result) -> Void in
             if error != nil{
-
                 if error.code == ERROR_CODE_EMAIL_TAKEN{
                     _error = "The email already exists in our database. Try another email."
+                }else if error.code == ERROR_CODE_INVALID_EMAIL{
+                    _error = "Invalid Email Address"
                 }else{
-                    _error = "There was some type of error"
+                    _error = "there was some type of error"
                 }
                 completionWithBlock(succeeded: false, error: _error)
             }else{
@@ -125,8 +123,9 @@ class FBUser:FBObject{
 
                 self.saveInBackgroundWithBlock({ (success, error) -> () in
                     if success{
-                        completionWithBlock(succeeded: true, error: "There were NO errors and user is logging in")
+                        completionWithBlock(succeeded: true, error: "")
                     }else{
+                        completionWithBlock(succeeded: false, error: error)
                         print(error)
                     }
                 })
