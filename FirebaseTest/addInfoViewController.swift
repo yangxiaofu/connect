@@ -58,26 +58,52 @@ class addInfoViewController: UIViewController, TypeSelectedDelegate {
             self.presentViewController(alert, animated: true, completion: nil)
         }else{
             if self.itemType == ItemType.Phone{
-                //TODO: - UPdate Numbers Class
-//                user.numbers?.addPhone(self.number.text!, type: self.selectedItemType)
-//                self.dismissViewControllerAnimated(true, completion: { () -> Void in
-//                    if self.delegate != nil{
-//                        print(user.numbers?.phoneNumbers)
-//                        self.delegate?.userDidSavePhoneNumber()
-//                    }
-//                })
+
+                let object = FBObject(className: Phone.BranchName)
+                object.userId = user.objectId
+                object[Phone.Number] = self.number.text!
+                object[Phone.MyType] = self.selectedItemType
+                object.saveInBackgroundWithBlock({ (success, error) -> () in
+                    if success {
+                        let delay = 1.5 * Double(NSEC_PER_SEC)
+                        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                        
+                        //TODO: - Activity Indicator
+                        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+                            self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                                self.delegate?.userDidSavePhoneNumber()
+                            })
+                        }
+
+                    }else{
+                        print("there was an error")
+                    }
+                })
                 
             }else{
-                //TODO: - Update Emails Class
-//                user.email?.addEmail(self.number.text!, type: self.selectedItemType)
-//                self.dismissViewControllerAnimated(true, completion: { () -> Void in
-//                    if self.delegate != nil{
-//                        print(user.email.emails)
-//                        self.delegate?.userDidSavePhoneNumber()
-//                    }
-//                    
-//                })
                 
+                let object = FBObject(className: Email.BranchName)
+                object.userId = user.objectId
+                object[Email.Email] = self.number.text!
+                object[Email.MyType] = self.selectedItemType
+                object.saveInBackgroundWithBlock({ (success, error) -> () in
+                    if success {
+                        let delay = 1.5 * Double(NSEC_PER_SEC)
+                        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                        
+                        //TODO: - Activity Indicator
+                        
+                        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+                            self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                                self.delegate?.userDidSavePhoneNumber()
+                            })
+                        }
+                        
+                    }else{
+                        print("there was an error")
+                    }
+                })
+
             }
             
         }

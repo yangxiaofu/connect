@@ -10,7 +10,7 @@ import UIKit
 
 class bCardCell: UITableViewCell {
     
-    @IBOutlet var userImage: CircularImage!
+    @IBOutlet var userImage: UIImageView!
     
     @IBOutlet var company: UILabel!
     

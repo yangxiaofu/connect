@@ -59,10 +59,10 @@ class FBObject{
     
     var dictionary:Dictionary<String, AnyObject>{
         get{
-            return _dictionary
+            return self._dictionary
         }
         set{
-            _dictionary = newValue
+            self._dictionary = newValue
         }
     }
     
@@ -96,9 +96,13 @@ class FBObject{
 
         
         if let uId = self._userId{
+            
             userId = uId as! String
+            
         }
+        
         if userId != ""{
+            
             if let tempId = objects1Ref?.key{
                 let id = tempId
                 
@@ -113,16 +117,39 @@ class FBObject{
                 userRef.updateChildValues(objectDictionary)
                 
                 completionWithBlock(success: true, error: "")
+                
             }else{
+                
                 completionWithBlock(success: false, error: "There was an error trying to save the object key into the user field.")
+                
             }
+            
         }else{
-            //do nothing
+            
             completionWithBlock(success: true, error: "")
-            print("This shoudl save the informaiton in the database the right way")
+            
         }
         
     }
     
-    
+   
+    func removeObject(key:String) throws {
+        guard self._className != nil else{
+            throw RemoveObjectError.NoClassName
+        }
+        
+        guard user.objectId != "" else{
+            throw RemoveObjectError.NoUserIdentified
+        }
+        
+        let url_ref = "\(URL_BASE)/\(className)/\(key)"
+        let ref = Firebase(url: url_ref)
+        
+        ref.removeValue()
+        
+        let url_user_ref = "\(URL_BASE)/Users/\(user.objectId)/\(className)/\(key)"
+        let user_ref = Firebase(url: url_user_ref)
+        
+        user_ref.removeValue()
+    }
 }

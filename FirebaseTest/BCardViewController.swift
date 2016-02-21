@@ -22,8 +22,8 @@ class bCardViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     @IBAction func logout(sender: AnyObject) {
-    //TODO - Update logout
-//        PFUser.logOut()
+        //TODO - Update logout
+
         performSegueWithIdentifier(Storyboard.Logout, sender: self)
     }
     
@@ -51,6 +51,12 @@ class bCardViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        let phoneRef = Firebase(url: "\(URL_BASE)/Email")
+
+        tblView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -66,37 +72,55 @@ class bCardViewController: UIViewController, UITableViewDelegate, UITableViewDat
             return cell
         case 1: //bcard Cell
             let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! bCardCell
+
+
+            cell.userImage.image = UIImage(data: user.userImageData )
+
             
-            //TODO: - Need to update the user class.
-//            cell.userImage.image = user.userImage?.image
-//            cell.fullName.text = user.businessCard.fullName
-//            cell.company.text = user.businessCard.company
-//            cell.headline.text = user.businessCard.headline
-//            cell.email.text = user.businessCard.email
-//            cell.number.text = user.businessCard.phoneNumber
+            if let fn = snapshot?.value[Users.FullName]{
+                cell.fullName.text = fn as? String
+            }else{
+                cell.fullName.text = ""
+            }
+            
+            if let comp = snapshot?.value[Users.Company]{
+                cell.company.text = comp as? String
+            }else{
+                cell.company.text = ""
+            }
+            
+            if let head = snapshot?.value[Users.Headline]{
+                cell.headline.text = head as? String
+            }else{
+                cell.headline.text = ""
+            }
+            
+            if let e = snapshot?.value[Users.Email]{
+                cell.email.text = e as? String
+            }else{
+                cell.email.text = ""
+            }
+
+            cell.number.text = "test"
             
             return cell
         case 2: //Add Phone Cell
             let cell = tableView.dequeueReusableCellWithIdentifier("phoneCell", forIndexPath: indexPath) as! phoneCellTableViewCell
-            //TODO: - need to update the phone class
-//            cell.phoneType.text = user.numbers!.phoneTypes[indexPath.row]
-//            cell.personalPhone.text = user.numbers!.phoneNumbers[indexPath.row]
+            cell.phoneType.text = phoneNumbers[PHONE_TYPE][indexPath.row]
+            cell.personalPhone.text = phoneNumbers[PHONE_NUMBER][indexPath.row]
             
             return cell
             
         case 3:
-            //TODO: - Update the cell with a button to add a cell.
             let cell = tableView.dequeueReusableCellWithIdentifier("addPhone", forIndexPath: indexPath)
             return cell
             
         case 4:
             let cell = tableView.dequeueReusableCellWithIdentifier("emailCell", forIndexPath: indexPath) as! EmailTableViewCell
-            //TODO: - Need to update the emial class.
-//            cell.emailType.text = user.email.emailTypes[indexPath.row]
-//            cell.email.text = user.email.emails[indexPath.row]
+            cell.emailType.text = emails[EMAIL_TYPE][indexPath.row]
+            cell.email.text = emails[EMAIL_ADDRESS][indexPath.row]
             return cell
         case 5:
-            //TODO: - Update the cell with a button to add a cell.
             let cell = tableView.dequeueReusableCellWithIdentifier("addEmail", forIndexPath: indexPath)
             
             return cell
@@ -121,15 +145,11 @@ class bCardViewController: UIViewController, UITableViewDelegate, UITableViewDat
             //TODO: - Add potentially multiple cards later on.
             return 1
         case 2: //Phone Numbers
-            return 1
-            //TODO; - Need to udpate the phone number class
-//            return (user.numbers?.phoneNumbers.count)!
+            return phoneNumbers[PHONE_NUMBER].count
         case 3: //Phone Numbers
             return 1
         case 4: //Emails
-            //TODO: - Need to udpat ethe emails class
-//            return (user.email?.emails.count)!
-            return 1
+            return emails[EMAIL_ADDRESS].count
         case 5: //Add Email
             return 1
         default:
@@ -188,21 +208,38 @@ class bCardViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if editingStyle == .Delete{
             switch indexPath.section{
             case 2: //Phone Numbers
-                //TODO: - Need to update the users class
-//                let objectId = user.numbers?.phoneObjectId[indexPath.row]
-//                user.numbers?.removePhone(objectId!)
-//                user.numbers?.phoneNumbers.removeAtIndex(indexPath.row)
-//                user.numbers?.phoneObjectId.removeAtIndex(indexPath.row)
-//                user.numbers?.phoneTypes.removeAtIndex(indexPath.row)
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+
+                let key = phoneNumbers[PHONE_KEY][indexPath.row]
+                
+                let object = FBObject(className: Phone.BranchName)
+                
+                do{
+                    try object.removeObject(key)
+                    phoneNumbers[PHONE_NUMBER].removeAtIndex(indexPath.row)
+                    phoneNumbers[PHONE_TYPE].removeAtIndex(indexPath.row)
+                    phoneNumbers[PHONE_KEY].removeAtIndex(indexPath.row)
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                    tblView.reloadData()
+                } catch {
+                    print("There was no class name attached to this")
+                }
+                
             case 4:
-                //TODO: - Need to update teh users class
-//                let objectId = user.email.emailObjectId[indexPath.row]
-//                user.email.removeEmail(objectId)
-//                user.email.emails.removeAtIndex(indexPath.row)
-//                user.email.emailObjectId.removeAtIndex(indexPath.row)
-//                user.email.emailTypes.removeAtIndex(indexPath.row)
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                
+                let key = emails[EMAIL_KEY][indexPath.row]
+                
+                let object = FBObject(className: Email.BranchName)
+                
+                do{
+                    try object.removeObject(key)
+                    emails[EMAIL_ADDRESS].removeAtIndex(indexPath.row)
+                    emails[EMAIL_TYPE].removeAtIndex(indexPath.row)
+                    emails[EMAIL_KEY].removeAtIndex(indexPath.row)
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                    tblView.reloadData()
+                } catch {
+                    print("There was no class name attached to this")
+                }
                 
             default:
                 print("Do nothing")
@@ -226,13 +263,17 @@ class bCardViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    
     //MARK: - Delegate Functions
     func userDidSavePhoneNumber() {
+        
         tblView.reloadData()
     }
     
     func UserDidSaveInfo(){
+        
         tblView.reloadData()
+        
     }
     
     

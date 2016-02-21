@@ -17,7 +17,6 @@
 		A507F6921C6B021A003B7755 /* Emails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F6911C6B021A003B7755 /* Emails.swift */; };
 		A507F6941C6B03F5003B7755 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F6931C6B03F5003B7755 /* Users.swift */; };
 		A507F6961C6B055F003B7755 /* SelectImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F6951C6B055F003B7755 /* SelectImageTableViewController.swift */; };
-		A507F6981C6C5E73003B7755 /* DDUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F6971C6C5E73003B7755 /* DDUser.swift */; };
 		A507F69A1C6C632F003B7755 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F6991C6C632F003B7755 /* Name.swift */; };
 		A528605D1C5C352C00D8DF5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528605C1C5C352C00D8DF5D /* AppDelegate.swift */; };
 		A528605F1C5C352C00D8DF5D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528605E1C5C352C00D8DF5D /* ViewController.swift */; };
@@ -25,6 +24,9 @@
 		A52860651C5C352C00D8DF5D /* FirebaseTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A52860631C5C352C00D8DF5D /* FirebaseTest.xcdatamodeld */; };
 		A52860671C5C352C00D8DF5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A52860661C5C352C00D8DF5D /* Assets.xcassets */; };
 		A528606A1C5C352C00D8DF5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A52860681C5C352C00D8DF5D /* LaunchScreen.storyboard */; };
+		A58E70501C70FC7C00F745D6 /* DDNameString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E704F1C70FC7C00F745D6 /* DDNameString.swift */; };
+		A59FDDAA1C6D556B00453CD6 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59FDDA91C6D556B00453CD6 /* Info.swift */; };
+		A59FDDAE1C6D9E3900453CD6 /* Global_variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59FDDAD1C6D9E3900453CD6 /* Global_variables.swift */; };
 		A5BD5D6B1C5EC587001C1C07 /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD5D6A1C5EC587001C1C07 /* EmailService.swift */; };
 		A5BD5D6D1C5EC794001C1C07 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD5D6C1C5EC794001C1C07 /* ErrorHandling.swift */; };
 		A5BD5D6F1C5F0103001C1C07 /* FBObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD5D6E1C5F0103001C1C07 /* FBObject.swift */; };
@@ -60,7 +62,6 @@
 		A507F6911C6B021A003B7755 /* Emails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emails.swift; sourceTree = "<group>"; };
 		A507F6931C6B03F5003B7755 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		A507F6951C6B055F003B7755 /* SelectImageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectImageTableViewController.swift; sourceTree = "<group>"; };
-		A507F6971C6C5E73003B7755 /* DDUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDUser.swift; sourceTree = "<group>"; };
 		A507F6991C6C632F003B7755 /* Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
 		A52860591C5C352C00D8DF5D /* BConnectTo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BConnectTo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A528605C1C5C352C00D8DF5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +72,9 @@
 		A52860691C5C352C00D8DF5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A528606B1C5C352C00D8DF5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A52860711C5C35BB00D8DF5D /* FirebaseTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FirebaseTest-Bridging-Header.h"; sourceTree = "<group>"; };
+		A58E704F1C70FC7C00F745D6 /* DDNameString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDNameString.swift; sourceTree = "<group>"; };
+		A59FDDA91C6D556B00453CD6 /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		A59FDDAD1C6D9E3900453CD6 /* Global_variables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global_variables.swift; sourceTree = "<group>"; };
 		A5BD5D6A1C5EC587001C1C07 /* EmailService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailService.swift; sourceTree = "<group>"; };
 		A5BD5D6C1C5EC794001C1C07 /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		A5BD5D6E1C5F0103001C1C07 /* FBObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBObject.swift; sourceTree = "<group>"; };
@@ -166,15 +170,16 @@
 		A5C4B9631C5C4FF600F6E477 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A507F6971C6C5E73003B7755 /* DDUser.swift */,
 				A5C4B9891C5DEC3600F6E477 /* DDBusinessCard.swift */,
 				A5BD5D6E1C5F0103001C1C07 /* FBObject.swift */,
 				A5BD5D741C5F1221001C1C07 /* FBQuery.swift */,
 				A5C4B98B1C5E8EAC00F6E477 /* FBUser.swift */,
+				A58E704F1C70FC7C00F745D6 /* DDNameString.swift */,
 				A507F6931C6B03F5003B7755 /* Users.swift */,
 				A507F68F1C6B0130003B7755 /* PhoneNumbers.swift */,
 				A507F6911C6B021A003B7755 /* Emails.swift */,
 				A507F6991C6C632F003B7755 /* Name.swift */,
+				A59FDDA91C6D556B00453CD6 /* Info.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 			children = (
 				A5C4B9781C5D631200F6E477 /* Constants.swift */,
 				A5BD5D6C1C5EC794001C1C07 /* ErrorHandling.swift */,
+				A59FDDAD1C6D9E3900453CD6 /* Global_variables.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -388,7 +394,6 @@
 				A5C4B96D1C5C545000F6E477 /* GrayButtons.swift in Sources */,
 				A507F68E1C6B0002003B7755 /* ItemTypesTableViewController.swift in Sources */,
 				A507F68A1C6AFDCC003B7755 /* SocialTableViewCell.swift in Sources */,
-				A507F6981C6C5E73003B7755 /* DDUser.swift in Sources */,
 				A5C4B96F1C5C6F5E00F6E477 /* SignUpViewController.swift in Sources */,
 				A5BD5D6F1C5F0103001C1C07 /* FBObject.swift in Sources */,
 				A5C4B98E1C5EB4A200F6E477 /* BusinessCardService.swift in Sources */,
@@ -397,6 +402,7 @@
 				A5BD5D6D1C5EC794001C1C07 /* ErrorHandling.swift in Sources */,
 				A507F69A1C6C632F003B7755 /* Name.swift in Sources */,
 				A5C4B9691C5C512A00F6E477 /* InitialSignInPage.swift in Sources */,
+				A59FDDAA1C6D556B00453CD6 /* Info.swift in Sources */,
 				A507F6861C6AFD8C003B7755 /* phoneCellTableViewCell.swift in Sources */,
 				A5C4B9841C5DE52600F6E477 /* bCardCell.swift in Sources */,
 				A5BD5D751C5F1221001C1C07 /* FBQuery.swift in Sources */,
@@ -407,6 +413,8 @@
 				A5C4B98C1C5E8EAC00F6E477 /* FBUser.swift in Sources */,
 				A528605D1C5C352C00D8DF5D /* AppDelegate.swift in Sources */,
 				A5C4B96B1C5C533A00F6E477 /* RedSignInButton.swift in Sources */,
+				A59FDDAE1C6D9E3900453CD6 /* Global_variables.swift in Sources */,
+				A58E70501C70FC7C00F745D6 /* DDNameString.swift in Sources */,
 				A5C4B97C1C5DE26F00F6E477 /* CircularImage.swift in Sources */,
 				A5C4B9731C5D46E600F6E477 /* bConnect.swift in Sources */,
 				A5BD5D6B1C5EC587001C1C07 /* EmailService.swift in Sources */,

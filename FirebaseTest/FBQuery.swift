@@ -14,6 +14,9 @@ class FBQuery:FBObject{
     private var _userId:String?
     private var _id:String?
     
+    var arrayOfObjects = [[String]]()
+    
+    
     //MARK: - Getters and Setters
     
     var URL_BASE_CLASSNAME_ID:String{
@@ -53,34 +56,74 @@ class FBQuery:FBObject{
         
         }
     }
-    
-    func atBranch(branchName branchName:String){
-        self._branchName = branchName
-    }
 
-    func getObjectsAtBranchWithinIdWithBlock(id:String, completionWithBlock:(objects: NSDictionary, error:String) -> ()){
-        var errorString:String?
-        var errorArray = [String]()
-        var URL_BASE_CLASSNAME_ID_BRANCH:String!
-        var myBranchName:String!
+    func getObjectsAtBranchWithinIdWithBlock(branchName:String, id:String, completionWithBlock:(objects: FDataSnapshot) -> ()){
+        let URL_REF = "\(URL_BASE)/\(branchName)/\(id)"
+        let ref = Firebase(url: URL_REF)
         
-        if let b = self._branchName{
-                myBranchName = b
-                
-                URL_BASE_CLASSNAME_ID_BRANCH = "\(URL_BASE_CLASSNAME)/\(id)/\(myBranchName)"
-                let ref = Firebase(url: "\(URL_BASE_CLASSNAME_ID_BRANCH)")
-
-                ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
-                    if let d = snapshot.value{
-                        var dictionary = d as! NSDictionary
-                        completionWithBlock(objects: dictionary, error: "")
-                    }else{
-                        completionWithBlock(objects: ["":""], error: "There were not objects in this path")
-                    }
-
-                })
-        }else{
-            completionWithBlock(objects: ["":""], error: "Branch name did not exist")
+        ref.observeEventType(.Value) { (snapshot) -> Void in
+            completionWithBlock(objects: snapshot)
         }
     }
+    
+    func getArrayOf(userId:String) -> Void{
+        var arrayOfObject = [String]()
+        var arrayOfType = [String]()
+        var arrayOfKey = [String]()
+        
+        
+        var keys = [String]()
+        let url  = "\(URL_BASE)/Users/\(userId)/\(self.className)"
+        let ref = Firebase(url: url)
+        
+        ref.observeEventType(.Value, withBlock: { (snapshot) -> Void in
+
+            for i in snapshot.children{
+                let item = i as! FDataSnapshot
+                keys.append(item.key)
+            }
+            if keys.count != 0{
+                for x in keys{
+                    
+                    
+                    var url_key = "\(URL_BASE)/\(self.className)/\(x)"
+                    var refkey = Firebase(url: url_key)
+                    
+                    arrayOfKey.append(x as! String)
+                    refkey.observeSingleEventOfType(.Value, withBlock: { (snapshot2) -> Void in
+                        
+                        if self.className == "Email"{
+                            if let e = snapshot2.value[Email.Email]{
+                                if let et = snapshot2.value["type"]{
+                                    arrayOfObject.append(e as! String)
+                                    arrayOfType.append(et as! String)
+                                }
+                            }
+                            
+                        } else if self.className == "Phone"{
+                            if let pn = snapshot2.value[Phone.Number]{
+                                if let pt = snapshot2.value["type"]{
+                                    arrayOfObject.append(pn as! String)
+                                    arrayOfType.append(pt as! String)
+                                    
+                                }
+                            }
+                            
+                        }
+                        
+                        self.arrayOfObjects = [arrayOfObject, arrayOfType, arrayOfKey]
+                        
+                    })
+                }
+
+            }else{
+                self.arrayOfObjects = [[], [], []]
+            }
+            
+        }) { (error) -> Void in
+            print (error)
+        }
+    }
+    
+    
 }

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "C7149DEA26E82983EC79375812D8A02ABDE5E4B5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "C7149DEA26E82983EC79375812D8A02ABDE5E4B5" : 0,
+    "AD540503AB89EADEDF0F36D992B66B939B3241EC" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DACB4194-A399-44A4-8ABD-FC136AB63938",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "C7149DEA26E82983EC79375812D8A02ABDE5E4B5" : "FirebaseTest\/",
+    "AD540503AB89EADEDF0F36D992B66B939B3241EC" : "FirebaseTest\/FirebaseTest\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "FirebaseTest",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "FirebaseTest.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/yangxiaofu\/Connect-with-Firebase.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AD540503AB89EADEDF0F36D992B66B939B3241EC"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/yangxiaofu\/connect.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C7149DEA26E82983EC79375812D8A02ABDE5E4B5"
+    }
+  ]
+}

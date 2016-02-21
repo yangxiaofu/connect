@@ -11,13 +11,14 @@ import Foundation
 class FBUser:FBObject{
     private var _URL_BASE_USERS:String = "\(URL_BASE)/Users"
     private var _loggedIn:Bool = false
-    private var _objectId:String?
+    private var _objectId:String!
     private var _username:String?
     private var _password:String?
     private var _email:String?
     private var _dictionary = Dictionary<String, AnyObject>()
-    private var _currentUser = Dictionary<String, AnyObject>()
+    private var _subscriptReturnObject:AnyObject?
     private var _userImageUrl:String?
+    private var _userImageData:NSData?
     
     //MARK: - Setters and Getters
     
@@ -44,7 +45,6 @@ class FBUser:FBObject{
         }
         set{
             self._username = newValue
-            self._dictionary["username"] = newValue
         }
     }
     
@@ -64,7 +64,6 @@ class FBUser:FBObject{
         }
         set{
             self._email = newValue
-            self._dictionary["email"] = newValue
         }
     }
     
@@ -73,16 +72,22 @@ class FBUser:FBObject{
             return self._dictionary
         }
         set{
+            
             self._dictionary = newValue
         }
     }
-    
     var userImageUrl:String{
         get{
             return self._userImageUrl!
         }
+    }
+
+    var userImageData:NSData{
+        get{
+            return self._userImageData!
+        }
         set{
-            self._userImageUrl = newValue
+            self._userImageData = newValue
         }
     }
     
@@ -92,8 +97,8 @@ class FBUser:FBObject{
     }
     
     override subscript(key: String) -> AnyObject{
-        get {
-            return dictionary[key]!
+        get{
+            return self._dictionary[key]!
         }
         set {
             self._dictionary[key] = newValue
@@ -101,32 +106,53 @@ class FBUser:FBObject{
     }
     
     //MARK: - Functions
+    
+    func snapshot(id:String, completion:(snapshot:FDataSnapshot, error:String) -> ()){
+        let url = "\(URL_BASE)/Users/\(id)"
+        
+        let ref = Firebase(url: url)
+        
+        ref.observeEventType(.Value) { (snapshot) -> Void in
+            completion(snapshot: snapshot, error: "")
+        }
+    }
 
-    func signUpInBackgroundWithBlock(completionWithBlock:(succeeded:Bool, error: String) -> ()){
-        var ref = Firebase(url: self._URL_BASE_USERS)
+    func signUpInBackgroundWithBlock(completionWithBlock:(userId:String, error: String) -> ()){
+        let ref = Firebase(url: self._URL_BASE_USERS)
         var _error = ""
         
         ref.createUser(self._email, password: self._password) { (error , result) -> Void in
             if error != nil{
                 if error.code == ERROR_CODE_EMAIL_TAKEN{
                     _error = "The email already exists in our database. Try another email."
+                    
                 }else if error.code == ERROR_CODE_INVALID_EMAIL{
+                    
                     _error = "Invalid Email Address"
                 }else{
+                    
                     _error = "there was some type of error"
                 }
-                completionWithBlock(succeeded: false, error: _error)
+                
+                completionWithBlock(userId: "", error: _error)
+                
             }else{
+                
                 if let u = result["uid"]{
                     self._objectId = u as! String
                 }
 
                 self.saveInBackgroundWithBlock({ (success, error) -> () in
+                    
                     if success{
-                        completionWithBlock(succeeded: true, error: "")
+                        
+                        completionWithBlock(userId: self._objectId!, error: "")
+                        
                     }else{
-                        completionWithBlock(succeeded: false, error: error)
+                        
+                        completionWithBlock(userId: "", error: error)
                         print(error)
+                        
                     }
                 })
             }
@@ -150,8 +176,9 @@ class FBUser:FBObject{
                     completionWithBlock(user: nil, error: "This user does not exist")
                 }else if error.code == ERROR_CODE_INVALID_EMAIL{
                     completionWithBlock(user: nil, error: "This is an invalid email")
+                }else if error.code == ERROR_CODE_FIREBASE_AUTHENTICATION{
+                    completionWithBlock(user: nil, error: "Due to another authentication attempt, this authentication attempt was aborted before it could complete.")
                 }else{
-                    print("Need to update the error handler")
                     print(error)
                 }
                 
@@ -159,8 +186,14 @@ class FBUser:FBObject{
                 //user is logged in, check authData for data
                 
                 let user = FBUser()
-                
+                                
                 user.objectId = AuthData.uid
+                
+                if let ui = AuthData.providerData["profileImageURL"]{
+                    user._userImageUrl = ui as! String
+                }else{
+                    user._userImageUrl = ""
+                }
 
                 if let e = AuthData.providerData["email"]{
                     user.email = e as! String
@@ -169,7 +202,7 @@ class FBUser:FBObject{
                 }
                 
                 if let uImage = AuthData.providerData["profileImageURL"]{
-                    user.userImageUrl = uImage as! String
+                    user._userImageUrl = uImage as! String
                 }
                 
                 if let u = AuthData.providerData["email"]{
@@ -179,21 +212,31 @@ class FBUser:FBObject{
                 }
                 
                 completionWithBlock(user: user, error: "")
-            
+                
             }
         }
-        
+
     }
     
     override func saveInBackgroundWithBlock(completionWithBlock: (success: Bool, error: String) -> ()) {
+        
         let URL_BASE_USER_ID = "\(URL_BASE)/Users/"
         let ref = Firebase(url: _URL_BASE_USERS)
-
-        var usersRef = ref.childByAppendingPath(self._objectId)
-        usersRef.setValue(self._dictionary)
+        let usersRef = ref.childByAppendingPath(self._objectId)
+        
+        usersRef.updateChildValues(self._dictionary)
+        
         completionWithBlock(success: true, error: "")
+        
     }
-
+    
+   
+    func getDataFromURLWithBlock(url:String, completion:(data:NSData?, response:NSURLResponse?, error:NSError?) -> ()){
+        let checkedURL = NSURL(string: url)
+        NSURLSession.sharedSession().dataTaskWithURL(checkedURL!) { (data, response, error ) -> Void in
+            completion(data: data, response: response, error: error)
+        }.resume()
+    }
 }
 
 

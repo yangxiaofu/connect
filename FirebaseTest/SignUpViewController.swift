@@ -11,7 +11,6 @@ import UIKit
 class SignUpViewController: UIViewController {
     //MARK: - STORYBOARD
     
-    
     @IBOutlet var fullName: UITextField!
     
     @IBOutlet var username: UITextField!
@@ -29,27 +28,47 @@ class SignUpViewController: UIViewController {
     @IBAction func signUp(sender: AnyObject) {
         if fullName.text != "" && username.text != "" && password.text != ""{
             
-            let signUp = FBUser()
+            var signUp = FBUser()
             
             signUp.email = username.text!
 
             signUp.password = password.text!
             
-            signUp.signUpInBackgroundWithBlock({ (succeeded, error) -> () in
-                if succeeded{
-                    let object = FBObject(className: "Email")
-//                    object.userId
-                    object["email"] = self.username.text!
+            signUp[Users.FullName] = fullName.text!
+            
+            signUp.signUpInBackgroundWithBlock({ (userId, error) -> () in
+                if userId != ""{
+                    user.objectId = userId
+                    let object = FBObject(className: Email.BranchName)
                     
+                    object.userId = user.objectId
+                    object[Email.Email] = signUp.email
                     object.saveInBackgroundWithBlock({ (success, error) -> () in
-                        if success{
-                            print(success)
-                            print("Success")
-                            self.performSegueWithIdentifier(Storyboard.SignedUp, sender: self)
+                        
+                        if (success) {
                             
-                        }else{
+                            var user = FBUser()
+                            
+                            user.logInWithUsernameInBackground(self.username.text!, password: self.password.text!) { (user, error) -> () in
+                                
+                                if user == nil{
+
+                                    self.displayAlert("", message: error)
+                                    
+                                }else{
+
+                                    self.performSegueWithIdentifier(Storyboard.SignedUp, sender: self)
+                                    
+                                }
+                                
+                            }
+                            
+                            self.performSegueWithIdentifier(Storyboard.SignedUp, sender: self)
+
+                        } else {
                             
                             self.displayAlert("", message: error)
+                            
                         }
                     })
                 }else{

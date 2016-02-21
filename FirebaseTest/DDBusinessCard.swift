@@ -10,9 +10,8 @@ import Foundation
 
 
 
-class DDBusinessCard{
-    
-    
+class DDBusinessCard:FBQuery{
+   
     struct Card{
         static let Name = "name"
         static let Company = "company"
@@ -30,8 +29,6 @@ class DDBusinessCard{
     private var _email:String?
     
     private var _phoneNumber:String?
-    
-    private var _card:Dictionary<String, String>!
     
     var name:String{
         return self._name
@@ -53,19 +50,29 @@ class DDBusinessCard{
         return self._phoneNumber!
     }
     
-    var card:Dictionary<String, String>{
+    var card:Dictionary<String, AnyObject>{
         get{
-            return self._card!
+            return self.dictionary
         }
-
+    }
+    
+    override subscript(key: String) -> AnyObject{
+        get{
+            return self.dictionary[key]!
+        }
+        set{
+            self.dictionary[key] = newValue
+        }
     }
     
     //MARK: - Initializers
+
     init(){
-        
+        super.init(className: "BusinessCards")
     }
     
     init(name:String, company:String, headline:String){
+        super.init(className: "BusinessCards")
         self._name = name
         self._company = company
         self._headline = headline

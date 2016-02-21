@@ -13,9 +13,6 @@ protocol UserSavedInformationDelegate{
 }
 
 class EditBCardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, SavedUserImageDelegate{
-    var firstName = ""
-    var lastName = ""
-    var middleName = ""
     var fullName = ""
     var company = ""
     var headline = ""
@@ -24,6 +21,8 @@ class EditBCardViewController: UIViewController, UITableViewDelegate, UITableVie
     var delegate:UserSavedInformationDelegate?
     var selectedCell:Int?
     var selectedSection:Int?
+    var name:DDNameString?
+    
     
     @IBOutlet var tblView: UITableView!
     
@@ -35,68 +34,30 @@ class EditBCardViewController: UIViewController, UITableViewDelegate, UITableVie
         static let Email = "Email"
     }
     
-    //MARK: Save BCard
-    
     @IBAction func closeModal(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func saveBCard(sender: AnyObject) {
-//TODO: - Update the user class
-//        user.businessCard.company = company
-//        user.businessCard.headline = headline
-//        user.businessCard.fullName = fullName
+         //TODO: - Complete the save user feature
         
-        //TODO: - DELETE THIS LINE OF CODE, I DO NOT THINK THI SIS VALUABLE RIGHT NOW.
-        //        do{
-        //            try user.info?.updateCompany(company)
-        //            //TODO: - IS THIS REDUNDANT?
-        //            user.info?.company = company
-        //        }catch{
-        //            print("the company name was an empty string")
-        //        }
-        //
-        //        do{
-        //            try user.info?.updateHeadline(headline)
-        //            //TODO: - IS THIS REDUNDANT?
-        //            user.info?.headline = headline
-        //
-        //        }catch{
-        //            print("The headline was an empty string")
-        //        }
-        
-        var fullNameDict = Dictionary<String, String>()
-        //TODO: - UPdate the user class
-//        fullNameDict = user.name.separateNameAsDictionary(fullName) as! Dictionary<String, String>
-        
-        if let fn = fullNameDict["firstName"]{
-            firstName = fn
+        let saveUser = FBUser()
+        saveUser.objectId = user.objectId
+        if company != ""{
+            saveUser[Users.Company] = company
         }
-        if let mn = fullNameDict["middleName"]{
-            middleName = mn
+        saveUser[Users.FullName] = fullName
+        saveUser[Users.Headline] = headline
+        saveUser.saveInBackgroundWithBlock { (success, error) -> () in
+            if success {
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }else{
+                let alert = UIAlertController(title: "", message: error, preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
         }
-        if let ln = fullNameDict["lastName"]{
-            lastName = ln
-        }
-        //TODO: - Update the user class
-//        user.name.updateName(firstName, middleName: middleName, lastName: lastName)
-//        if delegate != nil{
-//            
-//            
-//            user.name.fullName = fullName
-//            
-//            user.businessCard.updateBusinessCard(user.businessCard.objectId, completion: { (success, error) -> () in
-//                if success{
-//                    
-//                    self.delegate?.UserDidSaveInfo()
-//                    
-//                    self.dismissViewControllerAnimated(true, completion: nil)
-//                    
-//                }else{
-//                    print(error)
-//                }
-//            })
-//        }
+    
     }
     
     @IBAction func selectImage(sender: AnyObject) {
@@ -105,12 +66,44 @@ class EditBCardViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //TODO: - Update the user Image class
-//        user.userImage?.getImageFromParse({ (image) -> () in
-//            self.userImage = image
-//        })
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+
+        if let _company = snapshot?.value[Users.Company]{
+            if let _comp = _company{
+                print(_comp)
+                company = _comp as! String
+            }else{
+                company = ""
+            }
+        }else{
+            company = ""
+        }
         
-        // Do any additional setup after loading the view.
+        if let _headline = snapshot?.value[Users.Headline]{
+            if let _head = _headline{
+                headline = _head as! String
+            }else{
+                headline = ""
+            }
+        }else{
+            headline = ""
+        }
+        
+        if let _fullName = snapshot?.value[Users.FullName]{
+            if let _full = _fullName{
+                fullName = _fullName as! String
+            }else{
+                fullName = ""
+            }
+            
+        }else{
+            
+            fullName = ""
+            
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -119,23 +112,27 @@ class EditBCardViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+        
         switch textField.tag{
+            
         case 1: //COMPANY
+            
             if let comp = textField.text{
                 company = comp
             }
-            print(company)
             
         case 2: //FULLNAME
+            
             if let fn = textField.text{
                 fullName = fn
             }
-            print(fullName)
+            
         case 3: //HEAD
+            
             if let head = textField.text{
                 headline = head
             }
-            print(headline)
+            
         default:
             break
         }
@@ -149,23 +146,21 @@ class EditBCardViewController: UIViewController, UITableViewDelegate, UITableVie
             let cell = tableView.dequeueReusableCellWithIdentifier("InfoCell", forIndexPath: indexPath) as! EditInfoTableViewCell
             //FIXME: - PROBLEM WITH THE TEXT FIELD RETURN SO THAT TEH SAVE METHOD CAN SAVE THE CORRECT INFORMATION
             
-            cell.userImage.image = userImage
-                //TODO: - Update the user class
-//            cell.company.text = user.info?.company
-//            company = (user.info?.company)!
-//            cell.company.delegate = self
-//            
-//            cell.headline.text = user.info?.headline
-//            headline = (user.info?.headline)!
-//            cell.headline.delegate = self
-//            
-//            cell.fullName.text = user.name.fullName
-//            fullName = user.name.fullName
-//            cell.fullName.delegate = self
+            cell.userImage.image = UIImage(data: user.userImageData)
+            
+            cell.company.text = company
+            cell.company.delegate = self
+            
+            cell.headline.text = headline
+            cell.headline.delegate = self
+            
+            cell.fullName.text = fullName
+            cell.fullName.delegate = self
             
             return cell
         case 1: //Phone
             let cell = tableView.dequeueReusableCellWithIdentifier("PhoneCell", forIndexPath: indexPath)
+            
             if indexPath.section == selectedSection{
                 if indexPath.row == selectedCell{
                     cell.accessoryType = .Checkmark
@@ -175,8 +170,9 @@ class EditBCardViewController: UIViewController, UITableViewDelegate, UITableVie
                     cell.selected = false
                 }
             }
-                //TODO: - Update the user class
-//            cell.textLabel?.text = user.numbers?.phoneNumbers[indexPath.row]
+            
+            cell.textLabel?.text = phoneNumbers[PHONE_NUMBER][indexPath.row]
+            
             return cell
         case 2: //Email
             let cell = tableView.dequeueReusableCellWithIdentifier("EmailCell", forIndexPath: indexPath)
@@ -190,32 +186,33 @@ class EditBCardViewController: UIViewController, UITableViewDelegate, UITableVie
                 }
                 
             }
-            //TODO: - Update the user class
-//             cell.textLabel?.text = user.email.emails[indexPath.row]
+            
+            cell.textLabel?.text = emails[EMAIL_ADDRESS][indexPath.row]
+            
             return cell
         default:
             let cell = tableView.dequeueReusableCellWithIdentifier("InfoCell", forIndexPath: indexPath)
+            
             cell.textLabel?.text = "Cell"
+            
             return cell
             
         }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         switch section{
         case 0: //Info
             return 1
         case 1: //Phone
-            //TODO: - Update the user numbers class
-            return 1
-//            return (user.numbers?.phoneNumbers.count)!
+            return phoneNumbers[PHONE_NUMBER].count
         case 2: //Email
-            //TODO: - Update the user email class
-            return 1
-//            return user.email.emails.count
+            return emails[EMAIL_ADDRESS].count
         default:
             return 1
         }
+        
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         var height:CGFloat = 50.0
@@ -233,6 +230,7 @@ class EditBCardViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
         switch section{
         case 0: //BCard Info
             return "Business Card Information"
@@ -242,17 +240,19 @@ class EditBCardViewController: UIViewController, UITableViewDelegate, UITableVie
             return "Select Email To Display"
         default:
             return ""
-            
         }
+        
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
         switch section{
         case 1,2:
             return 25
         default:
             return 0
         }
+        
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

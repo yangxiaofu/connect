@@ -28,3 +28,8 @@ enum UpdateNameError:ErrorType{
     case InvalidName
     case NoNamesProvided
 }
+
+enum RemoveObjectError:ErrorType{
+    case NoClassName
+    case NoUserIdentified
+}

@@ -40,7 +40,7 @@ class EmailService:DataService{
         
         
         email = [
-            Email.OwnerUniqueID: uniqueUserId
+            Email.UserId: uniqueUserId
         ]
         
         let email_reference = REF_EMAILS.childByAutoId()

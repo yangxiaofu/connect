@@ -19,9 +19,10 @@ class Emails{
     var types = ["Personal", "Work", "Other"]
     
     init(){
-        //TODO: - convert to FBUser.
-//        self.setEmails((PFUser.currentUser()?.objectId)!)
-//        
+        
+        self.setEmails(user.objectId)
+
+        
 //        if let we = PFUser.currentUser()?[UserClass.workEmail]{
 //            self.work = we as! String
 //        }
