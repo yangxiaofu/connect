@@ -24,14 +24,20 @@ class LoginViewController: UIViewController {
             
             login.logInWithUsernameInBackground(email.text!, password: password.text!, completionWithBlock: { (myUser, error) -> () in
                 if error == ""{
+                    
                     user = myUser!
                     
+                    card = DDBusinessCard(userId: user.objectId)
+                    
                     user.snapshot(user.objectId, completion: { (_snapshot, error) -> () in
-                        let emailObjects = FBQuery(className: "Email")
+                        //TODO: Take a snapshot of the business card that the current user has. 
+                        
+                        card = DDBusinessCard(userId: user.objectId)
+                        
+                        let emailObjects = FBQuery(className: Email.BranchName)
                         emailObjects.getArrayOf(user.objectId)
                         
-                        
-                        let phoneNumbersObjects = FBQuery(className: "Phone")
+                        let phoneNumbersObjects = FBQuery(className: Phone.BranchName)
                         phoneNumbersObjects.getArrayOf(user.objectId)
                         
                         let delay = 2.0 * Double(NSEC_PER_SEC)
@@ -43,6 +49,7 @@ class LoginViewController: UIViewController {
                         user.getDataFromURLWithBlock(user.userImageUrl) { (data, response, error) -> () in
                             user.userImageData = data!
                         }
+                        
                         
                         dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
                             emails = emailObjects.arrayOfObjects
@@ -75,7 +82,9 @@ class LoginViewController: UIViewController {
         email.text = "fudaviddong@gmail.com"
         
         password.text = "xiao8281"
-
+        
+        
+        
         // Do any additional setup after loading the view.
     }
 

@@ -16,8 +16,10 @@
 
 import UIKit
 
+
+
 protocol SavedPhoneNumberDelegate{
-    func userDidSavePhoneNumber() //Reloads the table
+    func userDidSavePhoneNumber(objectDictionary:Dictionary<String, String>) //Reloads the table
 }
 
 class addInfoViewController: UIViewController, TypeSelectedDelegate {
@@ -25,6 +27,7 @@ class addInfoViewController: UIViewController, TypeSelectedDelegate {
     let numbers = PhoneNumbers()
     var selectedItemType:String = "Personal"
     var delegate:SavedPhoneNumberDelegate?
+    var objectDictionary:Dictionary<String, String>?
     
     @IBOutlet var headerLabel: UILabel!
     
@@ -57,6 +60,14 @@ class addInfoViewController: UIViewController, TypeSelectedDelegate {
             
             self.presentViewController(alert, animated: true, completion: nil)
         }else{
+
+            objectDictionary = [
+                "itemType": self.itemType,
+                "object": self.number.text!,
+                "type": self.selectedItemType,
+                "key": user.objectId
+            ]
+
             if self.itemType == ItemType.Phone{
 
                 let object = FBObject(className: Phone.BranchName)
@@ -64,16 +75,14 @@ class addInfoViewController: UIViewController, TypeSelectedDelegate {
                 object[Phone.Number] = self.number.text!
                 object[Phone.MyType] = self.selectedItemType
                 object.saveInBackgroundWithBlock({ (success, error) -> () in
+
                     if success {
-                        let delay = 1.5 * Double(NSEC_PER_SEC)
-                        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-                        
+
                         //TODO: - Activity Indicator
-                        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
-                            self.dismissViewControllerAnimated(true, completion: { () -> Void in
-                                self.delegate?.userDidSavePhoneNumber()
-                            })
-                        }
+                        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+
+                            self.delegate?.userDidSavePhoneNumber(self.objectDictionary!)
+                        })
 
                     }else{
                         print("there was an error")
@@ -88,16 +97,10 @@ class addInfoViewController: UIViewController, TypeSelectedDelegate {
                 object[Email.MyType] = self.selectedItemType
                 object.saveInBackgroundWithBlock({ (success, error) -> () in
                     if success {
-                        let delay = 1.5 * Double(NSEC_PER_SEC)
-                        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                            self.delegate?.userDidSavePhoneNumber(self.objectDictionary!)
+                        })
                         
-                        //TODO: - Activity Indicator
-                        
-                        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
-                            self.dismissViewControllerAnimated(true, completion: { () -> Void in
-                                self.delegate?.userDidSavePhoneNumber()
-                            })
-                        }
                         
                     }else{
                         print("there was an error")

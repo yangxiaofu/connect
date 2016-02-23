@@ -92,25 +92,21 @@ class FBQuery:FBObject{
                     arrayOfKey.append(x as! String)
                     refkey.observeSingleEventOfType(.Value, withBlock: { (snapshot2) -> Void in
                         
-                        if self.className == "Email"{
+                        if self.className == Email.BranchName{
                             if let e = snapshot2.value[Email.Email]{
                                 if let et = snapshot2.value["type"]{
                                     arrayOfObject.append(e as! String)
                                     arrayOfType.append(et as! String)
                                 }
                             }
-                            
-                        } else if self.className == "Phone"{
+                        } else if self.className == Phone.BranchName{
                             if let pn = snapshot2.value[Phone.Number]{
                                 if let pt = snapshot2.value["type"]{
                                     arrayOfObject.append(pn as! String)
                                     arrayOfType.append(pt as! String)
-                                    
                                 }
                             }
-                            
-                        }
-                        
+                        } 
                         self.arrayOfObjects = [arrayOfObject, arrayOfType, arrayOfKey]
                         
                     })

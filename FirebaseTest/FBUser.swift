@@ -160,6 +160,8 @@ class FBUser:FBObject{
     }
     
     func logOut(){
+        let ref = Firebase(url: "\(URL_BASE)")
+        print("Loggin user out")
         ref.unauth()
     }
     
@@ -229,13 +231,27 @@ class FBUser:FBObject{
         completionWithBlock(success: true, error: "")
         
     }
-    
    
     func getDataFromURLWithBlock(url:String, completion:(data:NSData?, response:NSURLResponse?, error:NSError?) -> ()){
         let checkedURL = NSURL(string: url)
         NSURLSession.sharedSession().dataTaskWithURL(checkedURL!) { (data, response, error ) -> Void in
             completion(data: data, response: response, error: error)
         }.resume()
+    }
+    
+    func hasAnyObject(className:String, completion:(count:UInt, error: String) -> ()){
+        
+        var count:UInt = 0
+        let url = "\(URL_BASE)/Users/\(self.userId)/\(className)"
+        let ref = Firebase(url: url)
+        
+        ref.observeSingleEventOfType(.Value, withBlock: { (snapshot) -> Void in
+            count = snapshot.childrenCount
+            completion(count: count, error: "")
+        }) { (error) -> Void in
+            completion(count: count, error: "there was a problem getting the number of objects")
+        }
+
     }
 }
 

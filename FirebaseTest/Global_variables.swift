@@ -14,3 +14,4 @@ var phoneNumbers = [[String]]()
 var snapshot:FDataSnapshot?
 var phoneSnapShot:FDataSnapshot?
 var emailSnapShot:FDataSnapshot?
+var card:DDBusinessCard!

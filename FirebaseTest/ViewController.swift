@@ -21,6 +21,10 @@ class ViewController: UIViewController {
     
     
     //MARK: - @IBACTIONS
+
+    @IBAction func prepareForUnwind(segue:UIStoryboardSegue){
+        
+    }
     
     @IBAction func loginButton(sender: AnyObject) {
         performSegueWithIdentifier(Storyboard.Login, sender: self)
@@ -32,7 +36,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
 }

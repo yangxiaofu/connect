@@ -38,40 +38,84 @@ class SignUpViewController: UIViewController {
             
             signUp.signUpInBackgroundWithBlock({ (userId, error) -> () in
                 if userId != ""{
-                    user.objectId = userId
-                    let object = FBObject(className: Email.BranchName)
                     
-                    object.userId = user.objectId
-                    object[Email.Email] = signUp.email
-                    object.saveInBackgroundWithBlock({ (success, error) -> () in
+                    let init_card = FBObject(className: Card.BranchName)
+                    init_card.userId = userId;
+                    init_card[Card.Email] = self.username.text!
+                    init_card[Card.Name] = self.fullName.text!
+                    
+                    init_card.saveInBackgroundWithBlock({ (success, error) -> () in
                         
-                        if (success) {
+                        if success {
                             
-                            var user = FBUser()
+                            user.objectId = userId
+                            user.email = self.username.text!
+                            user.username = self.username.text!
                             
-                            user.logInWithUsernameInBackground(self.username.text!, password: self.password.text!) { (user, error) -> () in
+                            let object = FBObject(className: Email.BranchName)
+                            object.userId = user.objectId
+                            object[Email.Email] = signUp.email
+                            object[Email.MyType] = "Personal"
+                            object.saveInBackgroundWithBlock({ (success, error) -> () in
                                 
-                                if user == nil{
-
+                                if (success) {
+                                    
+                                    user.logInWithUsernameInBackground(self.username.text!, password: self.password.text!) { (myUser, error) -> () in
+                                        
+                                        if error == ""{
+                                            user = myUser!
+                                            
+                                            user.snapshot(user.objectId, completion: { (_snapshot, error) -> () in
+                                                
+                                                card = DDBusinessCard(userId: user.objectId)
+                                                
+                                                let emailObjects = FBQuery(className: Email.BranchName)
+                                                emailObjects.getArrayOf(user.objectId)
+                                                
+                                                let phoneNumbersObjects = FBQuery(className: Phone.BranchName)
+                                                phoneNumbersObjects.getArrayOf(user.objectId)
+                                                
+                                                let delay = 2.0 * Double(NSEC_PER_SEC)
+                                                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                                                
+                                                //TODO: - Activity Indicator
+                                                
+                                                //sets the user profile image data
+                                                user.getDataFromURLWithBlock(user.userImageUrl) { (data, response, error) -> () in
+                                                    user.userImageData = data!
+                                                }
+                                                
+                                                dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+                                                    emails = emailObjects.arrayOfObjects
+                                                    phoneNumbers = phoneNumbersObjects.arrayOfObjects
+                                                    snapshot = _snapshot
+                                                    self.performSegueWithIdentifier(Storyboard.SignedUp, sender: self)
+                                                }
+                                            })
+                                            
+                                        }else{
+                                            
+                                            let alert = UIAlertController(title: "", message: error, preferredStyle: .Alert)
+                                            
+                                            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                                            
+                                            self.presentViewController(alert, animated: true, completion: nil)
+                                        }
+                                    }
+                                    
+                                } else {
+                                    
                                     self.displayAlert("", message: error)
                                     
-                                }else{
-
-                                    self.performSegueWithIdentifier(Storyboard.SignedUp, sender: self)
-                                    
                                 }
-                                
-                            }
-                            
-                            self.performSegueWithIdentifier(Storyboard.SignedUp, sender: self)
-
+                            })
                         } else {
-                            
                             self.displayAlert("", message: error)
-                            
                         }
                     })
-                }else{
+                    
+                    
+                                    }else{
                     self.displayAlert("", message: error)
                 }
             })

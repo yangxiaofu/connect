@@ -204,6 +204,36 @@ class TestViewController: UIViewController {
 //                print("Error")
 //            }
 //        }
+        
+//        let object = FBUser()
+//        object.userId = "860e3bb0-9fd5-434d-a816-c6e42929a2ae"
+//        object.hasAnyObject(Card.BranchName) { (count, error) -> () in
+//            print("There are a totoal of this many objects below");
+//            print(count)
+//        }
+        //5d1e28fa-11eb-4f15-990b-af41db214072
+        
+//        let card = DDBusinessCard(userId: "5d1e28fa-11eb-4f15-990b-af41db214072")
+//        let delay = 2.0 * Double(NSEC_PER_SEC)
+//                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+//        
+//                dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+//                    print(card.name)
+//                    print(card.id)
+//                }
+//
+        
+        //0a4369dc-3624-4fe2-b75f-735cbc60b12b
+        let cardTest = DDBusinessCard(userId: "0a4369dc-3624-4fe2-b75f-735cbc60b12b")
+
+        let delay = 2.0 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+
+        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+            print(cardTest.name)
+            print(cardTest.cardId)
+        }
+
 
     }
 

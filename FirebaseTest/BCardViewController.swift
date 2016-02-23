@@ -23,7 +23,7 @@ class bCardViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBAction func logout(sender: AnyObject) {
         //TODO - Update logout
-
+        user.logOut()
         performSegueWithIdentifier(Storyboard.Logout, sender: self)
     }
     
@@ -47,13 +47,10 @@ class bCardViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "vCard"
-        
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
-        let phoneRef = Firebase(url: "\(URL_BASE)/Email")
-
         tblView.reloadData()
     }
     
@@ -73,39 +70,17 @@ class bCardViewController: UIViewController, UITableViewDelegate, UITableViewDat
         case 1: //bcard Cell
             let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! bCardCell
 
-
             cell.userImage.image = UIImage(data: user.userImageData )
-
-            
-            if let fn = snapshot?.value[Users.FullName]{
-                cell.fullName.text = fn as? String
-            }else{
-                cell.fullName.text = ""
-            }
-            
-            if let comp = snapshot?.value[Users.Company]{
-                cell.company.text = comp as? String
-            }else{
-                cell.company.text = ""
-            }
-            
-            if let head = snapshot?.value[Users.Headline]{
-                cell.headline.text = head as? String
-            }else{
-                cell.headline.text = ""
-            }
-            
-            if let e = snapshot?.value[Users.Email]{
-                cell.email.text = e as? String
-            }else{
-                cell.email.text = ""
-            }
-
-            cell.number.text = "test"
+            cell.fullName.text = card.name
+            cell.company.text = card.company
+            cell.headline.text = card.headline
+            cell.email.text = card.email
+            cell.number.text = card.phoneNumber
             
             return cell
         case 2: //Add Phone Cell
             let cell = tableView.dequeueReusableCellWithIdentifier("phoneCell", forIndexPath: indexPath) as! phoneCellTableViewCell
+            
             cell.phoneType.text = phoneNumbers[PHONE_TYPE][indexPath.row]
             cell.personalPhone.text = phoneNumbers[PHONE_NUMBER][indexPath.row]
             
@@ -117,6 +92,7 @@ class bCardViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
         case 4:
             let cell = tableView.dequeueReusableCellWithIdentifier("emailCell", forIndexPath: indexPath) as! EmailTableViewCell
+            
             cell.emailType.text = emails[EMAIL_TYPE][indexPath.row]
             cell.email.text = emails[EMAIL_ADDRESS][indexPath.row]
             return cell
@@ -129,8 +105,6 @@ class bCardViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cell.textLabel?.text = "Cell"
             return cell
         }
-        
-        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -175,7 +149,6 @@ class bCardViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
         }
         return height
-        
     }
     
     
@@ -215,11 +188,17 @@ class bCardViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 
                 do{
                     try object.removeObject(key)
+
+                    if phoneNumbers[PHONE_NUMBER][indexPath.row] == card.phoneNumber{
+                        card.phoneNumber = ""
+                        card.updateCard()
+                    }
+                    
                     phoneNumbers[PHONE_NUMBER].removeAtIndex(indexPath.row)
                     phoneNumbers[PHONE_TYPE].removeAtIndex(indexPath.row)
                     phoneNumbers[PHONE_KEY].removeAtIndex(indexPath.row)
+                    
                     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-                    tblView.reloadData()
                 } catch {
                     print("There was no class name attached to this")
                 }
@@ -228,15 +207,24 @@ class bCardViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 
                 let key = emails[EMAIL_KEY][indexPath.row]
                 
+                
                 let object = FBObject(className: Email.BranchName)
+                
                 
                 do{
                     try object.removeObject(key)
+                    
+                    if emails[EMAIL_ADDRESS][indexPath.row] == card.email{
+                        card.email = ""
+                        card.updateCard()
+                    }
+                    
                     emails[EMAIL_ADDRESS].removeAtIndex(indexPath.row)
                     emails[EMAIL_TYPE].removeAtIndex(indexPath.row)
                     emails[EMAIL_KEY].removeAtIndex(indexPath.row)
+                    
                     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-                    tblView.reloadData()
+
                 } catch {
                     print("There was no class name attached to this")
                 }
@@ -252,28 +240,42 @@ class bCardViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == Storyboard.AddInfo{
             let addInfoVC:addInfoViewController = segue.destinationViewController as! addInfoViewController
-            
             if let iT = sender{
                 addInfoVC.itemType = iT as! String
                 addInfoVC.delegate = self
             }
+            
         }else if segue.identifier == Storyboard.EditVCard{
-//            let editVCardVC:EditBCardViewController = segue.destinationViewController as! EditBCardViewController
-//            editVCardVC.delegate = self
+            
+            let editVCardVC:EditBCardViewController = segue.destinationViewController as! EditBCardViewController
+            
+            editVCardVC.delegate = self
         }
     }
     
     
     //MARK: - Delegate Functions
-    func userDidSavePhoneNumber() {
+    func userDidSavePhoneNumber(object: Dictionary<String, String>) {
+
+        
+        if object["itemType"] == ItemType.Phone{
+            
+            phoneNumbers[PHONE_NUMBER].append(object["object"]!)
+            phoneNumbers[PHONE_TYPE].append(object["type"]!)
+            phoneNumbers[PHONE_KEY].append(object["key"]!)
+            
+        }else if object["itemType"] == ItemType.Email{
+            emails[EMAIL_ADDRESS].append(object["object"]!)
+            emails[EMAIL_TYPE].append(object["type"]!)
+            emails[EMAIL_KEY].append(object["key"]!)
+
+        }
         
         tblView.reloadData()
     }
     
     func UserDidSaveInfo(){
-        
         tblView.reloadData()
-        
     }
     
     

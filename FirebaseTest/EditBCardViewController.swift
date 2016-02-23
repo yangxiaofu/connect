@@ -13,16 +13,17 @@ protocol UserSavedInformationDelegate{
 }
 
 class EditBCardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, SavedUserImageDelegate{
-    var fullName = ""
-    var company = ""
-    var headline = ""
-    var test = ""
+    private var fullName = ""
+    private var company = ""
+    private var headline = ""
+    private var test = ""
+    private var selectedPhoneNumber = ""
+    private var selectedEmail = ""
     var userImage:UIImage?
     var delegate:UserSavedInformationDelegate?
     var selectedCell:Int?
     var selectedSection:Int?
     var name:DDNameString?
-    
     
     @IBOutlet var tblView: UITableView!
     
@@ -38,6 +39,12 @@ class EditBCardViewController: UIViewController, UITableViewDelegate, UITableVie
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func displayAlert(title:String, message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func saveBCard(sender: AnyObject) {
          //TODO: - Complete the save user feature
         
@@ -46,18 +53,33 @@ class EditBCardViewController: UIViewController, UITableViewDelegate, UITableVie
         if company != ""{
             saveUser[Users.Company] = company
         }
+        
         saveUser[Users.FullName] = fullName
         saveUser[Users.Headline] = headline
         saveUser.saveInBackgroundWithBlock { (success, error) -> () in
+         
             if success {
-                self.dismissViewControllerAnimated(true, completion: nil)
+                
+                card.name = self.fullName
+                
+                card.company = self.company
+                
+                card.headline = self.headline
+                
+                card.phoneNumber = self.selectedPhoneNumber
+                
+                card.email = self.selectedEmail
+                
+                card.updateCard()
+                
+                self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                    self.delegate?.UserDidSaveInfo()
+                })
+                
             }else{
-                let alert = UIAlertController(title: "", message: error, preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                self.displayAlert("", message: error)
             }
         }
-    
     }
     
     @IBAction func selectImage(sender: AnyObject) {
@@ -66,44 +88,16 @@ class EditBCardViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
     }
     
     override func viewWillAppear(animated: Bool) {
-
-        if let _company = snapshot?.value[Users.Company]{
-            if let _comp = _company{
-                print(_comp)
-                company = _comp as! String
-            }else{
-                company = ""
-            }
-        }else{
-            company = ""
-        }
-        
-        if let _headline = snapshot?.value[Users.Headline]{
-            if let _head = _headline{
-                headline = _head as! String
-            }else{
-                headline = ""
-            }
-        }else{
-            headline = ""
-        }
-        
-        if let _fullName = snapshot?.value[Users.FullName]{
-            if let _full = _fullName{
-                fullName = _fullName as! String
-            }else{
-                fullName = ""
-            }
-            
-        }else{
-            
-            fullName = ""
-            
-        }
-        
+        company = card.company
+        fullName = card.name
+        headline = card.headline
+        selectedPhoneNumber = card.phoneNumber
+        selectedEmail = card.email
     }
     
     override func didReceiveMemoryWarning() {
@@ -116,7 +110,6 @@ class EditBCardViewController: UIViewController, UITableViewDelegate, UITableVie
         switch textField.tag{
             
         case 1: //COMPANY
-            
             if let comp = textField.text{
                 company = comp
             }
@@ -144,17 +137,16 @@ class EditBCardViewController: UIViewController, UITableViewDelegate, UITableVie
         switch indexPath.section{
         case 0: //Info
             let cell = tableView.dequeueReusableCellWithIdentifier("InfoCell", forIndexPath: indexPath) as! EditInfoTableViewCell
-            //FIXME: - PROBLEM WITH THE TEXT FIELD RETURN SO THAT TEH SAVE METHOD CAN SAVE THE CORRECT INFORMATION
             
             cell.userImage.image = UIImage(data: user.userImageData)
             
-            cell.company.text = company
+            cell.company.text = card.company
             cell.company.delegate = self
             
-            cell.headline.text = headline
+            cell.headline.text = card.headline
             cell.headline.delegate = self
             
-            cell.fullName.text = fullName
+            cell.fullName.text = card.name
             cell.fullName.delegate = self
             
             return cell
@@ -259,17 +251,16 @@ class EditBCardViewController: UIViewController, UITableViewDelegate, UITableVie
         
         selectedCell = indexPath.row
         selectedSection = indexPath.section
-//        switch indexPath.section{
-////        case 1: //Phones
-////            //TODO: - UPdate the user class
-////
-//////            user.businessCard.phoneNumber = (user.numbers?.phoneNumbers[indexPath.row])!
-////        case 2: //Emails
-////            
-//////            user.businessCard.email = user.email.emails[indexPath.row]
-////        default:
-////            break
-////        }
+        
+        switch indexPath.section{
+            
+        case 1: //Phones
+            selectedPhoneNumber = phoneNumbers[PHONE_NUMBER][indexPath.row]
+        case 2: //Emails
+            selectedEmail = emails[EMAIL_ADDRESS][indexPath.row]
+        default:
+            break
+        }
         tblView.reloadData()
     }
     

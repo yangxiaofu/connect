@@ -49,6 +49,7 @@ struct Users{
     static let FirstName = "first_name"
     static let LastName = "last_name"
     static let MiddleName = "middle_name"
+    static let PhoneNumber = "phone_number"
 }
 
 struct Email{
@@ -65,6 +66,16 @@ struct Phone{
     static let MyType = "type"
     static let Key = "key"
     static let UserId = USERID
+}
+
+struct Card{
+    static let Id = "Id"
+    static let BranchName = "Card"
+    static let Name = "Name"
+    static let Company = "Company"
+    static let Headline = "Headline"
+    static let Email = "Email"
+    static let PhoneNumber = "PhoneNumber"
 }
 
 
