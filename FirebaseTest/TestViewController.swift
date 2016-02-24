@@ -223,16 +223,25 @@ class TestViewController: UIViewController {
 //                }
 //
         
-        //0a4369dc-3624-4fe2-b75f-735cbc60b12b
-        let cardTest = DDBusinessCard(userId: "0a4369dc-3624-4fe2-b75f-735cbc60b12b")
+//        //0a4369dc-3624-4fe2-b75f-735cbc60b12b
+//        let cardTest = DDBusinessCard(userId: "0a4369dc-3624-4fe2-b75f-735cbc60b12b")
+//
+//        let delay = 2.0 * Double(NSEC_PER_SEC)
+//        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+//
+//        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+//            print(cardTest.name)
+//            print(cardTest.cardId)
+//        }
 
-        let delay = 2.0 * Double(NSEC_PER_SEC)
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-
-        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
-            print(cardTest.name)
-            print(cardTest.cardId)
-        }
+//        
+//        user.objectId = "34f73317-1c24-49f5-af1a-9070669013db"
+//        
+//        user.makeConnectionWith("3c96cebc-45d9-4ec0-8c42-62167c51cede")
+//        
+//        user.objectId = "34f73317-1c24-49f5-af1a-9070669013db"
+//        
+//        user.makeConnectionWith("3c96cebc-45d9-4ec0-8c42-62167c51cede")
 
 
     }

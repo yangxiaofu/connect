@@ -89,25 +89,17 @@ class FBObject{
         var userId:String = ""
         
         let objectsRef = ref.childByAppendingPath(self._className)
-        
         let objects1Ref = objectsRef?.childByAutoId()
-        
         objects1Ref?.setValue(self._dictionary)
-
         
         if let uId = self._userId{
-            
-            userId = uId as! String
-            
+            userId = uId
         }
         
         if userId != ""{
-            
             if let tempId = objects1Ref?.key{
                 let id = tempId
-                
                 let URL_BASE_USER_CLASSNAME = "\(URL_BASE)/Users/\(userId)/\(self._className!)"
-                
                 let userRef = Firebase(url: "\(URL_BASE_USER_CLASSNAME)")
                 //TODO: - UPDATE THE VALUE AND DO NOT OVERWRITE
                 let objectDictionary = [
@@ -115,7 +107,6 @@ class FBObject{
                 ]
                 
                 userRef.updateChildValues(objectDictionary)
-                
                 completionWithBlock(success: true, error: "")
                 
             }else{

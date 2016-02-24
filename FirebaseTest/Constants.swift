@@ -41,6 +41,13 @@ let ERROR_CODE_INVALID_EMAIL = -5
 
 //MARK: - Data Structures within Firebase
 
+struct Connections{
+    static let BranchName = "Connections"
+    static let Latitude = "latitude"
+    static let Longitude = "longitude"
+    static let OtherUserId = "otherUserId"
+}
+
 struct Users{
     static let FullName = "full_name"
     static let Email = "email"

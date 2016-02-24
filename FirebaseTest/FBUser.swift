@@ -161,14 +161,10 @@ class FBUser:FBObject{
     
     func logOut(){
         let ref = Firebase(url: "\(URL_BASE)")
-        print("Loggin user out")
         ref.unauth()
     }
     
     func logInWithUsernameInBackground(username:String, password:String, completionWithBlock:(user: FBUser?, error:String) -> ()){
-        
-//        ref = new Firebase('https://YourFirebase.firebaseio.com');
-//            email = ref.getAuth().password.email;
         
         let ref = Firebase(url: "\(URL_BASE)")
         
@@ -257,6 +253,23 @@ class FBUser:FBObject{
         }
 
     }
+    
+    
+    func makeConnectionWith(otherUserId:String){
+        let pathName = "Connections"
+        let url = "\(URL_BASE)/Users/\(self.objectId)/\(pathName)"
+        
+        let data = [
+             "UserId": otherUserId
+        ]
+        
+        let ref = Firebase(url: url)
+        
+        ref.updateChildValues(data)
+        print("Success")
+        
+    }
+    
 }
 
 

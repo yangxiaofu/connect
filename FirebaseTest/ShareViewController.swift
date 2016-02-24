@@ -209,43 +209,27 @@ class ShareViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     private func makeConnection(){
+        var latString = ""
+        var lonString = ""
         
-
-        //TODO: - // Update the connections portion of this.
-//        let coordinates = GeoPoint(latitude: self.latitude!, longitude: self.longitude!)
-//        let myConnection = ConnectionManager(userId: user.userId, point: coordinates.PFPoint)
-//        myConnection.connectionExistsWith(self.otherUserId) { (exists, error) -> () in
-//            if !exists{
-//                myConnection.makeConnectionWith(self.otherUserId, completion: { (success, error) -> () in
-//                    if success{
-//                        print("A Connection has been made")
-//                        let store = CNContactStore()
-//                        
-//                        switch CNContactStore.authorizationStatusForEntityType(.Contacts){
-//                        case .Authorized:
-//                            //TODO: - CREATE CONTACT INTO THE CONTACTS STORE.
-//                            print("Incomplete")
-//                        case .NotDetermined:
-//                            store.requestAccessForEntityType(.Contacts, completionHandler: { (succeeded, error ) -> Void in
-//                                if error == nil && succeeded{
-//                                    print("Incomplete")
-//                                }
-//                            })
-//                            
-//                        default:
-//                            print("Not handled")
-//                            
-//                        }
-//                        
-//                        
-//                        
-//                    }else{
-//                        print("No connection has been made")
-//                    }
-//                })
-//                
-//            }
-//        }
+        latString = String(latitude!)
+        lonString = String(longitude!)
+        
+        let connectionObject = FBObject(className: Connections.BranchName)
+    
+        connectionObject.userId = user.objectId
+        connectionObject[Connections.Latitude] = latString
+        connectionObject[Connections.Longitude] = lonString
+        connectionObject[Connections.OtherUserId] = otherUserId
+        
+        connectionObject.saveInBackgroundWithBlock { (success, error) -> () in
+            if success {
+                print("Making the connection was successful")
+            }else{
+                print("There was an error making this connection")
+            }
+        }
+        
     }
     
     
