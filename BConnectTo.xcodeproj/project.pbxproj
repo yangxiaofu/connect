@@ -51,6 +51,11 @@
 		A5C4B98A1C5DEC3600F6E477 /* DDBusinessCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B9891C5DEC3600F6E477 /* DDBusinessCard.swift */; };
 		A5C4B98C1C5E8EAC00F6E477 /* FBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B98B1C5E8EAC00F6E477 /* FBUser.swift */; };
 		A5C4B98E1C5EB4A200F6E477 /* BusinessCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4B98D1C5EB4A200F6E477 /* BusinessCardService.swift */; };
+		A5FEBEE31C7E282D009D304D /* PrototypeContactsViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FEBEE21C7E282D009D304D /* PrototypeContactsViewTableViewController.swift */; };
+		A5FEBEE51C7E28D1009D304D /* ContactCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FEBEE41C7E28D1009D304D /* ContactCellTableViewCell.swift */; };
+		A5FEBEE91C7E2BE8009D304D /* DDContactName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FEBEE81C7E2BE8009D304D /* DDContactName.swift */; };
+		A5FEBEEB1C7E350A009D304D /* DDHeadlineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FEBEEA1C7E350A009D304D /* DDHeadlineLabel.swift */; };
+		A5FEBEED1C7E3D8F009D304D /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FEBEEC1C7E3D8F009D304D /* NavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +107,11 @@
 		A5C4B9891C5DEC3600F6E477 /* DDBusinessCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBusinessCard.swift; sourceTree = "<group>"; };
 		A5C4B98B1C5E8EAC00F6E477 /* FBUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBUser.swift; sourceTree = "<group>"; };
 		A5C4B98D1C5EB4A200F6E477 /* BusinessCardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCardService.swift; sourceTree = "<group>"; };
+		A5FEBEE21C7E282D009D304D /* PrototypeContactsViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrototypeContactsViewTableViewController.swift; sourceTree = "<group>"; };
+		A5FEBEE41C7E28D1009D304D /* ContactCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCellTableViewCell.swift; sourceTree = "<group>"; };
+		A5FEBEE81C7E2BE8009D304D /* DDContactName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDContactName.swift; sourceTree = "<group>"; };
+		A5FEBEEA1C7E350A009D304D /* DDHeadlineLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDHeadlineLabel.swift; sourceTree = "<group>"; };
+		A5FEBEEC1C7E3D8F009D304D /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		E81D8C4698E324D1AD8BA948 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -170,6 +180,7 @@
 				A52860631C5C352C00D8DF5D /* FirebaseTest.xcdatamodeld */,
 				A52860711C5C35BB00D8DF5D /* FirebaseTest-Bridging-Header.h */,
 				A5BD5D701C5F0381001C1C07 /* TestViewController.swift */,
+				A5FEBEE21C7E282D009D304D /* PrototypeContactsViewTableViewController.swift */,
 			);
 			name = BConnectTo;
 			path = FirebaseTest;
@@ -203,11 +214,14 @@
 		A5C4B9641C5C4FFD00F6E477 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A5FEBEEC1C7E3D8F009D304D /* NavigationBar.swift */,
 				A5C4B9681C5C512A00F6E477 /* InitialSignInPage.swift */,
 				A5C4B96A1C5C533A00F6E477 /* RedSignInButton.swift */,
 				A5C4B96C1C5C545000F6E477 /* GrayButtons.swift */,
 				A5C4B9721C5D46E600F6E477 /* bConnect.swift */,
 				A5C4B97B1C5DE26F00F6E477 /* CircularImage.swift */,
+				A5FEBEE81C7E2BE8009D304D /* DDContactName.swift */,
+				A5FEBEEA1C7E350A009D304D /* DDHeadlineLabel.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -274,6 +288,7 @@
 				A507F6851C6AFD8C003B7755 /* phoneCellTableViewCell.swift */,
 				A507F6871C6AFDAB003B7755 /* EmailTableViewCell.swift */,
 				A507F6891C6AFDCC003B7755 /* SocialTableViewCell.swift */,
+				A5FEBEE41C7E28D1009D304D /* ContactCellTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -415,18 +430,23 @@
 				A507F68E1C6B0002003B7755 /* ItemTypesTableViewController.swift in Sources */,
 				A507F68A1C6AFDCC003B7755 /* SocialTableViewCell.swift in Sources */,
 				A5C4B96F1C5C6F5E00F6E477 /* SignUpViewController.swift in Sources */,
+				A5FEBEEB1C7E350A009D304D /* DDHeadlineLabel.swift in Sources */,
 				A5BD5D6F1C5F0103001C1C07 /* FBObject.swift in Sources */,
 				A5C4B98E1C5EB4A200F6E477 /* BusinessCardService.swift in Sources */,
 				A528605F1C5C352C00D8DF5D /* ViewController.swift in Sources */,
 				A5C4B9761C5D618F00F6E477 /* DataService.swift in Sources */,
 				A5BD5D6D1C5EC794001C1C07 /* ErrorHandling.swift in Sources */,
 				A507F69A1C6C632F003B7755 /* Name.swift in Sources */,
+				A5FEBEE51C7E28D1009D304D /* ContactCellTableViewCell.swift in Sources */,
 				A5C4B9691C5C512A00F6E477 /* InitialSignInPage.swift in Sources */,
 				A59FDDAA1C6D556B00453CD6 /* Info.swift in Sources */,
 				A507F6861C6AFD8C003B7755 /* phoneCellTableViewCell.swift in Sources */,
+				A5FEBEE31C7E282D009D304D /* PrototypeContactsViewTableViewController.swift in Sources */,
+				A5FEBEED1C7E3D8F009D304D /* NavigationBar.swift in Sources */,
 				A5C4B9841C5DE52600F6E477 /* bCardCell.swift in Sources */,
 				A5BD5D751C5F1221001C1C07 /* FBQuery.swift in Sources */,
 				A5C4B97E1C5DE47400F6E477 /* bCardViewController.swift in Sources */,
+				A5FEBEE91C7E2BE8009D304D /* DDContactName.swift in Sources */,
 				A5C4B9861C5DE70800F6E477 /* EditBCardViewController.swift in Sources */,
 				A507F6921C6B021A003B7755 /* Emails.swift in Sources */,
 				A507F6941C6B03F5003B7755 /* Users.swift in Sources */,

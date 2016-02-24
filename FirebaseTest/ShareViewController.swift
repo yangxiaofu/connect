@@ -95,7 +95,8 @@ class ShareViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        
+        self.title = "Invite Contacts"
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -142,7 +143,7 @@ class ShareViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.mpcManager.browser.invitePeer(selectedPeer, toSession: self.mpcManager.session, withContext: nil , timeout: 20)
         }
         
-        let alert = UIAlertController(title: "", message: "You have requested a buiness card!", preferredStyle: .Alert)
+        let alert = UIAlertController(title: "", message: "You have requested a business card!", preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil ))
         self.presentViewController(alert, animated: true, completion: nil)
     }
@@ -152,7 +153,7 @@ class ShareViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 60.0
+        return 70.0
     }
     
     //MARK: - DELEGATE METHODS
@@ -231,6 +232,8 @@ class ShareViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
     }
+    
+
     
     
     

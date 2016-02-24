@@ -11,12 +11,10 @@ import UIKit
 class CircularImage: UIImageView {
     
     override func awakeFromNib() {
-        self.frame = CGRectMake(100, 100, 100, 100)
         self.layer.cornerRadius = self.frame.size.width / 2.0
-        self.layer.borderColor = UIColor.whiteColor().CGColor
-        self.layer.borderWidth = 5.0
+        self.layer.borderColor = UIColor.blackColor().CGColor
+        self.layer.borderWidth = 1.0
         self.clipsToBounds = true
-        
     }
 
 }
