@@ -20,6 +20,10 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>BConnect would like to get your location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>BConnect would like to get your location when the application is in use</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

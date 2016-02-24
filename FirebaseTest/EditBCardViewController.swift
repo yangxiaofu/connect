@@ -155,6 +155,7 @@ class EditBCardViewController: UIViewController, UITableViewDelegate, UITableVie
             
             if indexPath.section == selectedSection{
                 if indexPath.row == selectedCell{
+                    
                     cell.accessoryType = .Checkmark
                     cell.selected = true
                 }else{

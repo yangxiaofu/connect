@@ -27,7 +27,6 @@ class BusinessCard:DataService{
             return _REF_USERS_CARD
         }
     }
-
     
     func createFirebaseCard(uid:String, var card:Dictionary<String, String>){
         

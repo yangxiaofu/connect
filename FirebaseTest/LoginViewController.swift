@@ -54,6 +54,7 @@ class LoginViewController: UIViewController {
                         dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
                             emails = emailObjects.arrayOfObjects
                             phoneNumbers = phoneNumbersObjects.arrayOfObjects
+
                             snapshot = _snapshot
                             self.performSegueWithIdentifier(Storyboard.LoggedIn, sender: self)
                         }

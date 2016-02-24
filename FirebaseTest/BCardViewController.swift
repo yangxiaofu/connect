@@ -204,29 +204,38 @@ class bCardViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 }
                 
             case 4:
+
                 
-                let key = emails[EMAIL_KEY][indexPath.row]
-                
-                
-                let object = FBObject(className: Email.BranchName)
-                
-                
-                do{
-                    try object.removeObject(key)
+                if emails[EMAIL_ADDRESS][indexPath.row] != user.email{
                     
-                    if emails[EMAIL_ADDRESS][indexPath.row] == card.email{
-                        card.email = ""
-                        card.updateCard()
+                    let key = emails[EMAIL_KEY][indexPath.row]
+                    let object = FBObject(className: Email.BranchName)
+                    
+                    
+                    do{
+                        try object.removeObject(key)
+                        
+                        if emails[EMAIL_ADDRESS][indexPath.row] == card.email{
+                            card.email = ""
+                            card.updateCard()
+                        }
+                        
+                        emails[EMAIL_ADDRESS].removeAtIndex(indexPath.row)
+                        emails[EMAIL_TYPE].removeAtIndex(indexPath.row)
+                        emails[EMAIL_KEY].removeAtIndex(indexPath.row)
+                        
+                        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                        
+                    } catch {
+                        print("There was no class name attached to this")
                     }
                     
-                    emails[EMAIL_ADDRESS].removeAtIndex(indexPath.row)
-                    emails[EMAIL_TYPE].removeAtIndex(indexPath.row)
-                    emails[EMAIL_KEY].removeAtIndex(indexPath.row)
+                }else{
                     
-                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-
-                } catch {
-                    print("There was no class name attached to this")
+                    let alert = UIAlertController(title: "", message: "This is the email used to log into your account and therefore can not be changed.", preferredStyle: .Alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    
                 }
                 
             default:

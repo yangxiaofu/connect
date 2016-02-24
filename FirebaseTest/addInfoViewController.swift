@@ -75,9 +75,8 @@ class addInfoViewController: UIViewController, TypeSelectedDelegate {
                 object[Phone.Number] = self.number.text!
                 object[Phone.MyType] = self.selectedItemType
                 object.saveInBackgroundWithBlock({ (success, error) -> () in
-
+                    
                     if success {
-
                         //TODO: - Activity Indicator
                         self.dismissViewControllerAnimated(true, completion: { () -> Void in
 

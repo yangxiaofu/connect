@@ -18,6 +18,7 @@ class DDBusinessCard:FBQuery{
     private var _headline:String?
     private var _email:String?
     private var _phoneNumber:String?
+    private var _cardToSend:Dictionary<String, AnyObject>!
     
     var cardId:String{
         get{
@@ -109,6 +110,12 @@ class DDBusinessCard:FBQuery{
         }
     }
     
+    var transferCard:Dictionary<String, AnyObject>{
+        get{
+            return self._cardToSend!
+        }
+    }
+    
     override subscript(key: String) -> AnyObject{
         get{
             return self.dictionary[key]!
@@ -161,8 +168,8 @@ class DDBusinessCard:FBQuery{
             for i in snapshot.children{
                 
                 let item = i as! FDataSnapshot
-                
                 self._my_card_url = "\(URL_BASE)/Card/\(item.key)"
+                self._cardId = item.key
                 
                 let card_ref = Firebase(url: self._my_card_url)
                 card_ref.observeSingleEventOfType(.Value, withBlock: { (snapshot2) -> Void in
@@ -216,7 +223,6 @@ class DDBusinessCard:FBQuery{
             print(error)
         }
     }
-    
     func updateCard() -> Void{
 
         let card_url = "\(URL_BASE)/Card/\(self.cardId)"
@@ -232,4 +238,29 @@ class DDBusinessCard:FBQuery{
         
         card_ref.updateChildValues(saveDictionary)
     }
+    
+    func prepareToSend(){
+        struct CardToSend{
+            static let CardId = "cardId"
+            static let Name = "name"
+            static let Company = "company"
+            static let Headline = "headline"
+            static let Email = "email"
+            static let PhoneNumber = "phoneNumber"
+            static let UserId = "userId"
+        }
+        
+        self._cardToSend = [
+            CardToSend.CardId: self.cardId,
+            CardToSend.Name: self.name,
+            CardToSend.Headline:self.headline,
+            CardToSend.Company:self.company,
+            CardToSend.Email:self.email,
+            CardToSend.PhoneNumber:self.phoneNumber,
+            CardToSend.UserId:user.objectId
+        ]
+        print(self.transferCard)
+        
+    }
+    
 }

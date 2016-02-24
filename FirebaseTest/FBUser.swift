@@ -167,6 +167,9 @@ class FBUser:FBObject{
     
     func logInWithUsernameInBackground(username:String, password:String, completionWithBlock:(user: FBUser?, error:String) -> ()){
         
+//        ref = new Firebase('https://YourFirebase.firebaseio.com');
+//            email = ref.getAuth().password.email;
+        
         let ref = Firebase(url: "\(URL_BASE)")
         
         ref.authUser(username, password: password) { (error , AuthData) -> Void in
@@ -190,6 +193,7 @@ class FBUser:FBObject{
                 let user = FBUser()
                                 
                 user.objectId = AuthData.uid
+
                 
                 if let ui = AuthData.providerData["profileImageURL"]{
                     user._userImageUrl = ui as! String
