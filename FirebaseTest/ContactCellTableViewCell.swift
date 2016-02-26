@@ -13,6 +13,8 @@ class ContactCellTableViewCell: UITableViewCell {
     @IBOutlet var fullName: UILabel!
     @IBOutlet var headline: UILabel!
     
+    @IBOutlet var userImage: CircularImage!
+    
     override func awakeFromNib() {
         self.backgroundColor = UIColor(red: 248/255, green: 245/255, blue: 240/255, alpha: 1.0)
     }

@@ -56,6 +56,9 @@
 		A5FEBEE91C7E2BE8009D304D /* DDContactName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FEBEE81C7E2BE8009D304D /* DDContactName.swift */; };
 		A5FEBEEB1C7E350A009D304D /* DDHeadlineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FEBEEA1C7E350A009D304D /* DDHeadlineLabel.swift */; };
 		A5FEBEED1C7E3D8F009D304D /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FEBEEC1C7E3D8F009D304D /* NavigationBar.swift */; };
+		A5FEBEF01C7E6533009D304D /* ContactsViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FEBEEF1C7E6533009D304D /* ContactsViewTableViewController.swift */; };
+		A5FEBEF21C7FDEF6009D304D /* DDTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FEBEF11C7FDEF6009D304D /* DDTabBar.swift */; };
+		A5FEBEF41C7FE7E2009D304D /* ContactDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FEBEF31C7FE7E2009D304D /* ContactDetailsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +115,9 @@
 		A5FEBEE81C7E2BE8009D304D /* DDContactName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDContactName.swift; sourceTree = "<group>"; };
 		A5FEBEEA1C7E350A009D304D /* DDHeadlineLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDHeadlineLabel.swift; sourceTree = "<group>"; };
 		A5FEBEEC1C7E3D8F009D304D /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		A5FEBEEF1C7E6533009D304D /* ContactsViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewTableViewController.swift; sourceTree = "<group>"; };
+		A5FEBEF11C7FDEF6009D304D /* DDTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDTabBar.swift; sourceTree = "<group>"; };
+		A5FEBEF31C7FE7E2009D304D /* ContactDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetailsTableViewController.swift; sourceTree = "<group>"; };
 		E81D8C4698E324D1AD8BA948 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -222,6 +228,7 @@
 				A5C4B97B1C5DE26F00F6E477 /* CircularImage.swift */,
 				A5FEBEE81C7E2BE8009D304D /* DDContactName.swift */,
 				A5FEBEEA1C7E350A009D304D /* DDHeadlineLabel.swift */,
+				A5FEBEF11C7FDEF6009D304D /* DDTabBar.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -229,6 +236,7 @@
 		A5C4B9651C5C500100F6E477 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A5FEBEEE1C7E651B009D304D /* Contacts */,
 				A58E70531C7C0C8E00F745D6 /* Share */,
 				A5C4B9811C5DE4FC00F6E477 /* Initial Screens */,
 				A5C4B97F1C5DE4EB00F6E477 /* BCard */,
@@ -291,6 +299,15 @@
 				A5FEBEE41C7E28D1009D304D /* ContactCellTableViewCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		A5FEBEEE1C7E651B009D304D /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				A5FEBEEF1C7E6533009D304D /* ContactsViewTableViewController.swift */,
+				A5FEBEF31C7FE7E2009D304D /* ContactDetailsTableViewController.swift */,
+			);
+			name = Contacts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -423,6 +440,8 @@
 				A58E70571C7C0EB100F745D6 /* MPCManager.swift in Sources */,
 				A52860651C5C352C00D8DF5D /* FirebaseTest.xcdatamodeld in Sources */,
 				A58E70551C7C0CAB00F745D6 /* ShareViewController.swift in Sources */,
+				A5FEBEF41C7FE7E2009D304D /* ContactDetailsTableViewController.swift in Sources */,
+				A5FEBEF01C7E6533009D304D /* ContactsViewTableViewController.swift in Sources */,
 				A507F68C1C6AFF16003B7755 /* addInfoViewController.swift in Sources */,
 				A507F6901C6B0130003B7755 /* PhoneNumbers.swift in Sources */,
 				A507F6961C6B055F003B7755 /* SelectImageTableViewController.swift in Sources */,
@@ -453,6 +472,7 @@
 				A5C4B98C1C5E8EAC00F6E477 /* FBUser.swift in Sources */,
 				A528605D1C5C352C00D8DF5D /* AppDelegate.swift in Sources */,
 				A5C4B96B1C5C533A00F6E477 /* RedSignInButton.swift in Sources */,
+				A5FEBEF21C7FDEF6009D304D /* DDTabBar.swift in Sources */,
 				A59FDDAE1C6D9E3900453CD6 /* Global_variables.swift in Sources */,
 				A58E70501C70FC7C00F745D6 /* DDNameString.swift in Sources */,
 				A5C4B97C1C5DE26F00F6E477 /* CircularImage.swift in Sources */,

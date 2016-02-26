@@ -1,19 +1,17 @@
 //
-//  NavigationBar.swift
+//  DDTabBar.swift
 //  BConnectTo
 //
-//  Created by Dave Dong on 2/24/16.
+//  Created by Dave Dong on 2/25/16.
 //  Copyright © 2016 Self. All rights reserved.
 //
 
 import UIKit
 
-class NavigationBar: UINavigationController {
+class DDTabBar: UITabBar {
     
     override func awakeFromNib() {
-        self.navigationBar.barTintColor = UIColor(red: 234/255, green: 220/255, blue: 205/255, alpha: 1.0)
-        self.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Helvetica-light", size: 15)!]
-        
+        self.barTintColor = UIColor.whiteColor();
         
     }
 
