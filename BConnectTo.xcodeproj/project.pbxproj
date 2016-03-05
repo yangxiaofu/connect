@@ -13,11 +13,7 @@
 		A507F68A1C6AFDCC003B7755 /* SocialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F6891C6AFDCC003B7755 /* SocialTableViewCell.swift */; };
 		A507F68C1C6AFF16003B7755 /* addInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F68B1C6AFF16003B7755 /* addInfoViewController.swift */; };
 		A507F68E1C6B0002003B7755 /* ItemTypesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F68D1C6B0002003B7755 /* ItemTypesTableViewController.swift */; };
-		A507F6901C6B0130003B7755 /* PhoneNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F68F1C6B0130003B7755 /* PhoneNumbers.swift */; };
-		A507F6921C6B021A003B7755 /* Emails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F6911C6B021A003B7755 /* Emails.swift */; };
-		A507F6941C6B03F5003B7755 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F6931C6B03F5003B7755 /* Users.swift */; };
 		A507F6961C6B055F003B7755 /* SelectImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F6951C6B055F003B7755 /* SelectImageTableViewController.swift */; };
-		A507F69A1C6C632F003B7755 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507F6991C6C632F003B7755 /* Name.swift */; };
 		A528605D1C5C352C00D8DF5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528605C1C5C352C00D8DF5D /* AppDelegate.swift */; };
 		A528605F1C5C352C00D8DF5D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528605E1C5C352C00D8DF5D /* ViewController.swift */; };
 		A52860621C5C352C00D8DF5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A52860601C5C352C00D8DF5D /* Main.storyboard */; };
@@ -28,7 +24,6 @@
 		A58E70551C7C0CAB00F745D6 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E70541C7C0CAB00F745D6 /* ShareViewController.swift */; };
 		A58E70571C7C0EB100F745D6 /* MPCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E70561C7C0EB100F745D6 /* MPCManager.swift */; };
 		A58E70591C7C101A00F745D6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A58E70581C7C101A00F745D6 /* CoreLocation.framework */; };
-		A59FDDAA1C6D556B00453CD6 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59FDDA91C6D556B00453CD6 /* Info.swift */; };
 		A59FDDAE1C6D9E3900453CD6 /* Global_variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59FDDAD1C6D9E3900453CD6 /* Global_variables.swift */; };
 		A5BD5D6B1C5EC587001C1C07 /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD5D6A1C5EC587001C1C07 /* EmailService.swift */; };
 		A5BD5D6D1C5EC794001C1C07 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD5D6C1C5EC794001C1C07 /* ErrorHandling.swift */; };
@@ -59,6 +54,8 @@
 		A5FEBEF01C7E6533009D304D /* ContactsViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FEBEEF1C7E6533009D304D /* ContactsViewTableViewController.swift */; };
 		A5FEBEF21C7FDEF6009D304D /* DDTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FEBEF11C7FDEF6009D304D /* DDTabBar.swift */; };
 		A5FEBEF41C7FE7E2009D304D /* ContactDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FEBEF31C7FE7E2009D304D /* ContactDetailsTableViewController.swift */; };
+		A5FEBEF81C825EA2009D304D /* Connections.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FEBEF71C825EA2009D304D /* Connections.swift */; };
+		A5FEBEFA1C826B34009D304D /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FEBEF91C826B34009D304D /* Object.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,11 +66,7 @@
 		A507F6891C6AFDCC003B7755 /* SocialTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialTableViewCell.swift; sourceTree = "<group>"; };
 		A507F68B1C6AFF16003B7755 /* addInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addInfoViewController.swift; sourceTree = "<group>"; };
 		A507F68D1C6B0002003B7755 /* ItemTypesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTypesTableViewController.swift; sourceTree = "<group>"; };
-		A507F68F1C6B0130003B7755 /* PhoneNumbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumbers.swift; sourceTree = "<group>"; };
-		A507F6911C6B021A003B7755 /* Emails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emails.swift; sourceTree = "<group>"; };
-		A507F6931C6B03F5003B7755 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		A507F6951C6B055F003B7755 /* SelectImageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectImageTableViewController.swift; sourceTree = "<group>"; };
-		A507F6991C6C632F003B7755 /* Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
 		A52860591C5C352C00D8DF5D /* BConnectTo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BConnectTo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A528605C1C5C352C00D8DF5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A528605E1C5C352C00D8DF5D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,7 +80,6 @@
 		A58E70541C7C0CAB00F745D6 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		A58E70561C7C0EB100F745D6 /* MPCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCManager.swift; sourceTree = "<group>"; };
 		A58E70581C7C101A00F745D6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		A59FDDA91C6D556B00453CD6 /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		A59FDDAD1C6D9E3900453CD6 /* Global_variables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global_variables.swift; sourceTree = "<group>"; };
 		A5BD5D6A1C5EC587001C1C07 /* EmailService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailService.swift; sourceTree = "<group>"; };
 		A5BD5D6C1C5EC794001C1C07 /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
@@ -118,6 +110,8 @@
 		A5FEBEEF1C7E6533009D304D /* ContactsViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewTableViewController.swift; sourceTree = "<group>"; };
 		A5FEBEF11C7FDEF6009D304D /* DDTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDTabBar.swift; sourceTree = "<group>"; };
 		A5FEBEF31C7FE7E2009D304D /* ContactDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetailsTableViewController.swift; sourceTree = "<group>"; };
+		A5FEBEF71C825EA2009D304D /* Connections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connections.swift; sourceTree = "<group>"; };
+		A5FEBEF91C826B34009D304D /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
 		E81D8C4698E324D1AD8BA948 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -203,16 +197,13 @@
 		A5C4B9631C5C4FF600F6E477 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A5FEBEF91C826B34009D304D /* Object.swift */,
 				A5C4B9891C5DEC3600F6E477 /* DDBusinessCard.swift */,
 				A5BD5D6E1C5F0103001C1C07 /* FBObject.swift */,
 				A5BD5D741C5F1221001C1C07 /* FBQuery.swift */,
 				A5C4B98B1C5E8EAC00F6E477 /* FBUser.swift */,
 				A58E704F1C70FC7C00F745D6 /* DDNameString.swift */,
-				A507F6931C6B03F5003B7755 /* Users.swift */,
-				A507F68F1C6B0130003B7755 /* PhoneNumbers.swift */,
-				A507F6911C6B021A003B7755 /* Emails.swift */,
-				A507F6991C6C632F003B7755 /* Name.swift */,
-				A59FDDA91C6D556B00453CD6 /* Info.swift */,
+				A5FEBEF71C825EA2009D304D /* Connections.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -443,7 +434,7 @@
 				A5FEBEF41C7FE7E2009D304D /* ContactDetailsTableViewController.swift in Sources */,
 				A5FEBEF01C7E6533009D304D /* ContactsViewTableViewController.swift in Sources */,
 				A507F68C1C6AFF16003B7755 /* addInfoViewController.swift in Sources */,
-				A507F6901C6B0130003B7755 /* PhoneNumbers.swift in Sources */,
+				A5FEBEFA1C826B34009D304D /* Object.swift in Sources */,
 				A507F6961C6B055F003B7755 /* SelectImageTableViewController.swift in Sources */,
 				A5C4B96D1C5C545000F6E477 /* GrayButtons.swift in Sources */,
 				A507F68E1C6B0002003B7755 /* ItemTypesTableViewController.swift in Sources */,
@@ -455,20 +446,17 @@
 				A528605F1C5C352C00D8DF5D /* ViewController.swift in Sources */,
 				A5C4B9761C5D618F00F6E477 /* DataService.swift in Sources */,
 				A5BD5D6D1C5EC794001C1C07 /* ErrorHandling.swift in Sources */,
-				A507F69A1C6C632F003B7755 /* Name.swift in Sources */,
 				A5FEBEE51C7E28D1009D304D /* ContactCellTableViewCell.swift in Sources */,
 				A5C4B9691C5C512A00F6E477 /* InitialSignInPage.swift in Sources */,
-				A59FDDAA1C6D556B00453CD6 /* Info.swift in Sources */,
 				A507F6861C6AFD8C003B7755 /* phoneCellTableViewCell.swift in Sources */,
 				A5FEBEE31C7E282D009D304D /* PrototypeContactsViewTableViewController.swift in Sources */,
 				A5FEBEED1C7E3D8F009D304D /* NavigationBar.swift in Sources */,
 				A5C4B9841C5DE52600F6E477 /* bCardCell.swift in Sources */,
+				A5FEBEF81C825EA2009D304D /* Connections.swift in Sources */,
 				A5BD5D751C5F1221001C1C07 /* FBQuery.swift in Sources */,
 				A5C4B97E1C5DE47400F6E477 /* bCardViewController.swift in Sources */,
 				A5FEBEE91C7E2BE8009D304D /* DDContactName.swift in Sources */,
 				A5C4B9861C5DE70800F6E477 /* EditBCardViewController.swift in Sources */,
-				A507F6921C6B021A003B7755 /* Emails.swift in Sources */,
-				A507F6941C6B03F5003B7755 /* Users.swift in Sources */,
 				A5C4B98C1C5E8EAC00F6E477 /* FBUser.swift in Sources */,
 				A528605D1C5C352C00D8DF5D /* AppDelegate.swift in Sources */,
 				A5C4B96B1C5C533A00F6E477 /* RedSignInButton.swift in Sources */,

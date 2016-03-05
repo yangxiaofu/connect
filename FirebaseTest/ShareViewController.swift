@@ -210,11 +210,16 @@ class ShareViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     private func makeConnection(){
-        var latString = ""
-        var lonString = ""
+        var latString = 0.0
+        var lonString = 0.0
         
-        latString = String(latitude!)
-        lonString = String(longitude!)
+        if let lat = latitude{
+            latString = lat as! Double
+        }
+        
+        if let lon = longitude{
+            lonString = lon as! Double
+        }
         
         let connectionObject = FBObject(className: Connections.BranchName)
     

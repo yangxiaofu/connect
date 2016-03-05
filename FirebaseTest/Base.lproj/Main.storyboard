@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9vD-8i-S4s">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -623,28 +623,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IRT-a3-eOw">
-                                                    <rect key="frame" x="28" y="10" width="544" height="21"/>
-                                                    <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9eA-kI-AzP">
-                                                            <rect key="frame" x="0.0" y="0.0" width="544" height="21"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Barrack Obama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3L-KK-axJ" customClass="DDContactName" customModule="BConnectTo" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="544" height="21"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                        </stackView>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="9eA-kI-AzP" firstAttribute="centerY" secondItem="IRT-a3-eOw" secondAttribute="centerY" id="uh3-tJ-csf"/>
-                                                    </constraints>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IRT-a3-eOw">
+                                                    <rect key="frame" x="28" y="10" width="544" height="49"/>
                                                 </stackView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.95686274509803926" green="0.94509803921568625" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
+                                                <constraint firstItem="IRT-a3-eOw" firstAttribute="top" secondItem="ycw-cz-2ir" secondAttribute="topMargin" constant="2" id="XqW-d9-yCh"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="IRT-a3-eOw" secondAttribute="trailing" constant="20" id="dOt-0Z-y2I"/>
                                                 <constraint firstItem="IRT-a3-eOw" firstAttribute="centerY" secondItem="ycw-cz-2ir" secondAttribute="centerY" id="kIi-e2-zZc"/>
                                                 <constraint firstItem="IRT-a3-eOw" firstAttribute="leading" secondItem="ycw-cz-2ir" secondAttribute="leadingMargin" constant="20" id="uTT-mD-5Yu"/>

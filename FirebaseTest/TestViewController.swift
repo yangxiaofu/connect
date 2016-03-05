@@ -242,8 +242,14 @@ class TestViewController: UIViewController {
 //        user.objectId = "34f73317-1c24-49f5-af1a-9070669013db"
 //        
 //        user.makeConnectionWith("3c96cebc-45d9-4ec0-8c42-62167c51cede")
-
-
+        
+        let connect = FBConnections(userId: "ee4c67ba-ed6f-4245-9a63-8be64db922fb", branchName: "Connections")
+        
+        connect.prepareArray()
+        
+        
+//        connect.prepareFriendsArray()
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -24,7 +24,6 @@ protocol SavedPhoneNumberDelegate{
 
 class addInfoViewController: UIViewController, TypeSelectedDelegate {
     var itemType:String!
-    let numbers = PhoneNumbers()
     var selectedItemType:String = "Personal"
     var delegate:SavedPhoneNumberDelegate?
     var objectDictionary:Dictionary<String, String>?
