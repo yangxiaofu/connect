@@ -65,6 +65,9 @@ class SignUpViewController: UIViewController {
                                         if error == ""{
                                             user = myUser!
                                             
+                                            connections = FBConnections(userId: user.objectId, branchName: Connections.BranchName)
+                                            connections!.prepareArray()
+                                            
                                             user.snapshot(user.objectId, completion: { (_snapshot, error) -> () in
                                                 
                                                 card = DDBusinessCard(userId: user.objectId)

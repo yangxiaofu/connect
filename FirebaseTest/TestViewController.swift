@@ -243,12 +243,15 @@ class TestViewController: UIViewController {
 //        
 //        user.makeConnectionWith("3c96cebc-45d9-4ec0-8c42-62167c51cede")
         
-        let connect = FBConnections(userId: "ee4c67ba-ed6f-4245-9a63-8be64db922fb", branchName: "Connections")
+//        let connect = FBConnections(userId: "ee4c67ba-ed6f-4245-9a63-8be64db922fb", branchName: "Connections")
+//        
+//        connect.prepareArray()
+////        connect.prepareFriendsArray()
         
-        connect.prepareArray()
         
-        
-//        connect.prepareFriendsArray()
+        Gravatar.service.getGravatarImage("fudaviddong@gmail.com") { (data, response, error) -> () in
+            print("completed")
+        }
         
     }
 

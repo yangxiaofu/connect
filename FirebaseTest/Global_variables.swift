@@ -15,4 +15,5 @@ var snapshot:FDataSnapshot?
 var phoneSnapShot:FDataSnapshot?
 var emailSnapShot:FDataSnapshot?
 var card:DDBusinessCard!
+var connections:FBConnections?
 

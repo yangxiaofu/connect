@@ -20,15 +20,33 @@ class FBConnections{
     //TODO: - Branchname
     private var _branchName:String!
     private var _userId:String!
-    
     private var _id = [String]()
     private var _latitude = [CLLocationDegrees]()
     private var _longitude = [CLLocationDegrees]()
     private var _otherUserId = [String]()
-    private var _friendsArray = [Dictionary<String, String>()]
     private var _user_url = ""
     private var _user_ref:Firebase!
+    private var _names = [String]()
+    private var _company = [String]()
+    private var _email = [String]()
     
+    var names:[String]{
+        get{
+            return self._names
+        }
+    }
+    
+    var company:[String]{
+        get{
+            return self._company
+        }
+    }
+    
+    var email:[String]{
+        get{
+            return self._email
+        }
+    }
     
     var id:[String]{
         get{
@@ -59,12 +77,7 @@ class FBConnections{
             return self._otherUserId
         }
     }
-    var friendsArray:[Dictionary<String, String>]{
-        get{
-            return self._friendsArray
-        }
-    }
-    
+
     init(userId:String, branchName:String){
         self._userId = userId
         self._branchName = branchName
@@ -96,11 +109,12 @@ class FBConnections{
                     let refKey = Firebase(url: url_key)
                     
                     self._id.append(x)
+                    
                     refKey.observeSingleEventOfType(.Value, withBlock: { (snapshot2) -> Void in
-                        
                         if let lat = snapshot2.value[Connections.Latitude]{
                             self._latitude.append((lat as! CLLocationDegrees?)!)
                         }
+                        
                         if let lon = snapshot2.value[Connections.Longitude]{
                             self._longitude.append((lon as! CLLocationDegrees?)!)
                         }
@@ -122,23 +136,38 @@ class FBConnections{
                                             let theCardKey = a as! FDataSnapshot
                                             let otherUserCardUrl = "\(URL_BASE)/Card/\(theCardKey.key)"
                                             let otherUserCardUrlFB = Firebase(url: otherUserCardUrl)
+
                                             otherUserCardUrlFB.observeSingleEventOfType(.Value, withBlock: { (cardSnapshot) -> Void in
                                                 let theOtherUserCard = cardSnapshot.value
                                                 
                                                 //TODO: - Add the card into an array for all of the options
                                                 if let n = theOtherUserCard["Name"]{
-                                                    let name = n as! String
-                                                    print(name)
-                                                }else{
-                                                    
-                                                    //adds an empty string into the array
+                                                    if n != nil{
+                                                        self._names.append(n as! String)
+                                                    }else{
+                                                        self._names.append("")
+                                                    }
                                                 }
+                                                print(self._names)
                                                 
-                                                //TODO: - Add the profile URL Image
+                                                if let e = theOtherUserCard["Email"]{
+                                                    if e != nil{
+                                                        self._email.append(e as! String)
+                                                    }else{
+                                                        self._email.append("")
+                                                    }
+                                                }
+                                                print(self._email)
                                                 
-                                                //TODO: - Add the Company of the user in the array
+                                                if let c = theOtherUserCard["Company"]{
+                                                    if c != nil{
+                                                        self._company.append(c as! String)
+                                                    }else{
+                                                        self._company.append("")
+                                                    }
+                                                }
+                                                print(self._company)
                                                 
-
                                             }, withCancelBlock: { (error ) -> Void in
                                                 print(error)
                                             })

@@ -9,12 +9,28 @@
 import UIKit
 
 class ContactsViewTableViewController: UITableViewController {
+    
+    var contactEmails = [String]()
+    var contactCompany = [String]()
+    var contactNames = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Contacts"
-
+        
+        if let e = connections?.email{
+            contactEmails = e
+        }
+        
+        if let c = connections?.company{
+            contactCompany = c
+        }
+        
+        if let n = connections?.names{
+            contactNames = n
+        }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -34,16 +50,19 @@ class ContactsViewTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return contactEmails.count
     }
 
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("contactRow", forIndexPath: indexPath) as!
 ContactCellTableViewCell
         
-        cell.fullName.text = "Sal Iaccino"
-        cell.headline.text = "Director of Sales"
+        Gravatar.service.getGravatarImage(contactEmails[indexPath.row]) { (data, response, error) -> () in
+            cell.userImage.image = UIImage(data: data!)
+        }
+    
+        cell.fullName.text = contactNames[indexPath.row]
+        cell.headline.text = contactCompany[indexPath.row]
 
         // Configure the cell...
 

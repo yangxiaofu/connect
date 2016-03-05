@@ -32,6 +32,10 @@ class LoginViewController: UIViewController {
                     user.snapshot(user.objectId, completion: { (_snapshot, error) -> () in
                         //TODO: Take a snapshot of the business card that the current user has. 
                         
+                        //Prepares the array for the contacts view tab
+                        connections = FBConnections(userId: user.objectId, branchName: Connections.BranchName)
+                        connections!.prepareArray()
+                        
                         card = DDBusinessCard(userId: user.objectId)
                         
                         let emailObjects = FBQuery(className: Email.BranchName)

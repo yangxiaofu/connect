@@ -8,7 +8,11 @@
 
 import Foundation
 
+
+
 class FBUser:FBObject{
+    static let fb = FBUser()
+    
     private var _URL_BASE_USERS:String = "\(URL_BASE)/Users"
     private var _loggedIn:Bool = false
     private var _objectId:String!
@@ -269,7 +273,9 @@ class FBUser:FBObject{
         print("Success")
         
     }
-    
+
+
+        
 }
 
 

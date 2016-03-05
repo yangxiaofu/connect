@@ -20,6 +20,8 @@
 		A52860651C5C352C00D8DF5D /* FirebaseTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A52860631C5C352C00D8DF5D /* FirebaseTest.xcdatamodeld */; };
 		A52860671C5C352C00D8DF5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A52860661C5C352C00D8DF5D /* Assets.xcassets */; };
 		A528606A1C5C352C00D8DF5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A52860681C5C352C00D8DF5D /* LaunchScreen.storyboard */; };
+		A549F4E61C8B95E100F07650 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A549F4E51C8B95E100F07650 /* Extensions.swift */; };
+		A549F4E81C8B966300F07650 /* Gravatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A549F4E71C8B966300F07650 /* Gravatar.swift */; };
 		A58E70501C70FC7C00F745D6 /* DDNameString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E704F1C70FC7C00F745D6 /* DDNameString.swift */; };
 		A58E70551C7C0CAB00F745D6 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E70541C7C0CAB00F745D6 /* ShareViewController.swift */; };
 		A58E70571C7C0EB100F745D6 /* MPCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E70561C7C0EB100F745D6 /* MPCManager.swift */; };
@@ -76,6 +78,8 @@
 		A52860691C5C352C00D8DF5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A528606B1C5C352C00D8DF5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A52860711C5C35BB00D8DF5D /* FirebaseTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FirebaseTest-Bridging-Header.h"; sourceTree = "<group>"; };
+		A549F4E51C8B95E100F07650 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A549F4E71C8B966300F07650 /* Gravatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gravatar.swift; sourceTree = "<group>"; };
 		A58E704F1C70FC7C00F745D6 /* DDNameString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDNameString.swift; sourceTree = "<group>"; };
 		A58E70541C7C0CAB00F745D6 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		A58E70561C7C0EB100F745D6 /* MPCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCManager.swift; sourceTree = "<group>"; };
@@ -186,6 +190,14 @@
 			path = FirebaseTest;
 			sourceTree = "<group>";
 		};
+		A549F4E91C8B9B7200F07650 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A5FEBEE41C7E28D1009D304D /* ContactCellTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		A58E70531C7C0C8E00F745D6 /* Share */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +254,7 @@
 				A5C4B98D1C5EB4A200F6E477 /* BusinessCardService.swift */,
 				A5BD5D6A1C5EC587001C1C07 /* EmailService.swift */,
 				A58E70561C7C0EB100F745D6 /* MPCManager.swift */,
+				A549F4E71C8B966300F07650 /* Gravatar.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -252,6 +265,7 @@
 				A5C4B9781C5D631200F6E477 /* Constants.swift */,
 				A5BD5D6C1C5EC794001C1C07 /* ErrorHandling.swift */,
 				A59FDDAD1C6D9E3900453CD6 /* Global_variables.swift */,
+				A549F4E51C8B95E100F07650 /* Extensions.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -287,7 +301,6 @@
 				A507F6851C6AFD8C003B7755 /* phoneCellTableViewCell.swift */,
 				A507F6871C6AFDAB003B7755 /* EmailTableViewCell.swift */,
 				A507F6891C6AFDCC003B7755 /* SocialTableViewCell.swift */,
-				A5FEBEE41C7E28D1009D304D /* ContactCellTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -295,6 +308,7 @@
 		A5FEBEEE1C7E651B009D304D /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				A549F4E91C8B9B7200F07650 /* Cells */,
 				A5FEBEEF1C7E6533009D304D /* ContactsViewTableViewController.swift */,
 				A5FEBEF31C7FE7E2009D304D /* ContactDetailsTableViewController.swift */,
 			);
@@ -433,6 +447,7 @@
 				A58E70551C7C0CAB00F745D6 /* ShareViewController.swift in Sources */,
 				A5FEBEF41C7FE7E2009D304D /* ContactDetailsTableViewController.swift in Sources */,
 				A5FEBEF01C7E6533009D304D /* ContactsViewTableViewController.swift in Sources */,
+				A549F4E61C8B95E100F07650 /* Extensions.swift in Sources */,
 				A507F68C1C6AFF16003B7755 /* addInfoViewController.swift in Sources */,
 				A5FEBEFA1C826B34009D304D /* Object.swift in Sources */,
 				A507F6961C6B055F003B7755 /* SelectImageTableViewController.swift in Sources */,
@@ -449,6 +464,7 @@
 				A5FEBEE51C7E28D1009D304D /* ContactCellTableViewCell.swift in Sources */,
 				A5C4B9691C5C512A00F6E477 /* InitialSignInPage.swift in Sources */,
 				A507F6861C6AFD8C003B7755 /* phoneCellTableViewCell.swift in Sources */,
+				A549F4E81C8B966300F07650 /* Gravatar.swift in Sources */,
 				A5FEBEE31C7E282D009D304D /* PrototypeContactsViewTableViewController.swift in Sources */,
 				A5FEBEED1C7E3D8F009D304D /* NavigationBar.swift in Sources */,
 				A5C4B9841C5DE52600F6E477 /* bCardCell.swift in Sources */,
