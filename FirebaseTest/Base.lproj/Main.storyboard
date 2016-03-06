@@ -1222,7 +1222,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="bcard" rowHeight="152" id="F3M-MD-5vl">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="bcard" rowHeight="152" id="F3M-MD-5vl" customClass="BCardTableViewCell" customModule="BConnectTo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="152"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F3M-MD-5vl" id="swK-8J-caz">
@@ -1232,13 +1232,21 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Q51-5L-DbC">
                                                     <rect key="frame" x="8" y="13" width="584" height="125"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2yW-Dc-Rke">
+                                                        <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2yW-Dc-Rke">
                                                             <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red" translatesAutoresizingMaskIntoConstraints="NO" id="lj1-8e-Zmd" customClass="UserImageGreenBorder" customModule="BConnectTo" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                                 </imageView>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="lj1-8e-Zmd" secondAttribute="bottom" id="Phf-Tw-7K4"/>
+                                                                <constraint firstAttribute="trailing" secondItem="lj1-8e-Zmd" secondAttribute="trailing" id="Q53-7p-zaN"/>
+                                                                <constraint firstAttribute="width" constant="120" id="VuG-BK-0Yc"/>
+                                                                <constraint firstItem="lj1-8e-Zmd" firstAttribute="top" secondItem="2yW-Dc-Rke" secondAttribute="top" id="eu9-rO-L69"/>
+                                                                <constraint firstItem="lj1-8e-Zmd" firstAttribute="leading" secondItem="2yW-Dc-Rke" secondAttribute="leading" id="rxW-W3-W6K"/>
+                                                                <constraint firstAttribute="height" constant="120" id="tsg-Yy-eWO"/>
+                                                            </constraints>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FBM-fG-KCG">
                                                             <rect key="frame" x="120" y="0.0" width="464" height="125"/>
@@ -1291,6 +1299,14 @@
                                                 <constraint firstItem="Q51-5L-DbC" firstAttribute="leading" secondItem="swK-8J-caz" secondAttribute="leadingMargin" id="qfx-aF-5XQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="company" destination="xqp-U0-lYk" id="t9x-0J-Aye"/>
+                                            <outlet property="email" destination="MZL-zW-O4J" id="geY-3s-O7F"/>
+                                            <outlet property="headline" destination="HAu-N8-MIm" id="gu6-rf-49h"/>
+                                            <outlet property="name" destination="XEn-S5-GK1" id="Pcc-7X-mZE"/>
+                                            <outlet property="phoneNumber" destination="v4B-VW-eMd" id="YI7-6J-pem"/>
+                                            <outlet property="userImage" destination="lj1-8e-Zmd" id="zPN-h4-mkK"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

@@ -149,10 +149,65 @@ class DDBusinessCard:FBQuery{
         let url = "\(URL_BASE)/\(Card.BranchName)/\(id)"
         let ref = Firebase(url: url)
         
-        ref.observeEventType(.Value, withBlock: { (snapshot) -> Void in
-            //TODO: - od the values
-        }) { (error) -> Void in
-            print("nothing here")
+        ref.observeSingleEventOfType(.Value, withBlock: { (cardSnapshot) -> Void in
+            let card = cardSnapshot.value
+            
+            if let c = card[Card.Company]{
+                if c != nil{
+                    self._company = c as! String
+                }else{
+                    self._company = ""
+                }
+            }
+            
+            if let e = card[Card.Email]{
+                if e != nil{
+                    self._email = e as! String
+                }else{
+                    self._email = ""
+                }
+            }
+            
+            if let h = card[Card.Headline]{
+                if h != nil{
+                    self._headline = h as! String
+                }else{
+                    self._headline = ""
+                }
+                
+            }
+            
+            if let n = card[Card.Name]{
+                if n != nil{
+                    self._name = n as! String
+                }else{
+                    self._name = ""
+                }
+                
+            }
+            
+            if let pn = card[Card.PhoneNumber]{
+                if pn != nil{
+                    self._phoneNumber = pn as! String
+                }else{
+                    self._phoneNumber = ""
+                }
+                
+            }
+            
+            if let uId = card["userId"]{
+                if uId != nil{
+                    self._userId = uId as! String
+                }else{
+                    self._userId = ""
+                }
+                
+            }
+            print("Inside the DDBUSINESSCARD CLASS")
+            print(self._name)
+            
+        }) { (error ) -> Void in
+            print("There was an error getting the card")
         }
     }
     

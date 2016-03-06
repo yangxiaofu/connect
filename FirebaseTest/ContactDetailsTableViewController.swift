@@ -10,6 +10,16 @@ import UIKit
 
 class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var cardId:String?
+    var thisCardId = ""
+    var thisCard:DDBusinessCard?
+    var name = ""
+    var company = ""
+    var headline = ""
+    var email = ""
+    var phoneNumber = ""
+    
+    
     
     @IBAction func closeModel(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -19,17 +29,46 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
         
         //TODO: Should share the card
     }
-    
-    var contactId:String?
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let c = cardId{
+            thisCardId = c
+            thisCard = DDBusinessCard(id: thisCardId)
+        }
+        
+        if let e = thisCard?.email{
+            email = e
+        }
+        
+        if let c = thisCard?.company{
+            company = c
+        }
+        
+        if let n = thisCard?.name{
+            name = n
+        }
+        
+        if let h = thisCard?.headline{
+            headline = h
+        }
+        
+        if let pn = thisCard?.phoneNumber{
+            phoneNumber = pn
+        }
+
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,9 +89,20 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("bcard", forIndexPath: indexPath)
-        
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier("bcard", forIndexPath: indexPath) as! BCardTableViewCell
+    
+        Gravatar.service.getGravatarImage(email, completion: { (data, response, error) -> () in
+            cell.userImage.image = UIImage(data: data!)
+        })
+        print("fuck you")
+        print(name)
+        print(email)
+        print("bitch")
+        cell.name.text = name
+        cell.company.text = company
+        cell.headline.text = headline
+        cell.email.text = email
+        cell.phoneNumber.text = phoneNumber
 
         // Configure the cell...
 

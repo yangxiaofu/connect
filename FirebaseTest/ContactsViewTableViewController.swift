@@ -10,9 +10,15 @@ import UIKit
 
 class ContactsViewTableViewController: UITableViewController {
     
+    struct Storyboard{
+        static let ShowDetails = "showDetails"
+    }
+    
     var contactEmails = [String]()
     var contactCompany = [String]()
     var contactNames = [String]()
+    var contactUserId = [String]()
+    var cardId = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +35,14 @@ class ContactsViewTableViewController: UITableViewController {
         
         if let n = connections?.names{
             contactNames = n
+        }
+        
+        if let u = connections?.theOtherUserId{
+            contactUserId = u
+        }
+        
+        if let ck = connections?.cardId{
+            cardId = ck
         }
         
         // Uncomment the following line to preserve selection between presentations
@@ -76,7 +90,21 @@ ContactCellTableViewCell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("showDetails", sender: self)
+        performSegueWithIdentifier(Storyboard.ShowDetails, sender: cardId[indexPath.row])
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var theUserId:String
+        
+        if segue.identifier == Storyboard.ShowDetails{
+            let contactDetailsVC:ContactDetailsViewController = segue.destinationViewController as! ContactDetailsViewController
+
+            if let c = sender{
+                contactDetailsVC.cardId = c as! String
+            }
+            
+
+        }
     }
 
     /*

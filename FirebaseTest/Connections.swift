@@ -29,10 +29,18 @@ class FBConnections{
     private var _names = [String]()
     private var _company = [String]()
     private var _email = [String]()
+    private var _theOtherUserId = [String]()
+    private var _cardId = [String]()
     
     var names:[String]{
         get{
             return self._names
+        }
+    }
+    
+    var cardId:[String]{
+        get{
+            return self._cardId
         }
     }
     
@@ -54,9 +62,9 @@ class FBConnections{
         }
     }
     
-    var userId:String{
+    var theOtherUserId:[String]{
         get{
-            return self._userId
+            return self._theOtherUserId
         }
     }
     
@@ -141,6 +149,15 @@ class FBConnections{
                                                 let theOtherUserCard = cardSnapshot.value
                                                 
                                                 //TODO: - Add the card into an array for all of the options
+                                                if let ck = theCardKey.key{
+                                                    if ck != ""{
+                                                        self._cardId.append(ck as! String)
+                                                    }else{
+                                                        self._cardId.append("")
+                                                    }
+                                                }
+                                                print(self._cardId)
+                                                
                                                 if let n = theOtherUserCard["Name"]{
                                                     if n != nil{
                                                         self._names.append(n as! String)
@@ -167,6 +184,15 @@ class FBConnections{
                                                     }
                                                 }
                                                 print(self._company)
+                                                
+                                                if let u = theOtherUserCard["userId"]{
+                                                    if u != nil{
+                                                        self._theOtherUserId.append(u as! String)
+                                                    }else{
+                                                        self._theOtherUserId.append("")
+                                                    }
+                                                }
+                                                print(self._theOtherUserId)
                                                 
                                             }, withCancelBlock: { (error ) -> Void in
                                                 print(error)
