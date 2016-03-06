@@ -20,3 +20,11 @@ login.logInWithUsernameInBackground(email.text!, password: password.text!, compl
 
 </p>
 
+
+<h3>Update Business Card</h3>
+Initialize the card<br />
+let card = DDBusinessCard();<br />
+
+card.name = "Dave Dong"<br />
+
+card.updateCard()
