@@ -20,8 +20,7 @@ class ContactsViewTableViewController: UITableViewController {
     var contactNames = [String]()
     var contactUserId = [String]()
     var cardId = [String]()
-    
-    
+
     
     @IBAction func logout(sender: AnyObject) {
         user.logOut()
