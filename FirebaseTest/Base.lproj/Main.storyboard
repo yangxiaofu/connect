@@ -1199,40 +1199,56 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Contacts" id="WNI-AO-AgB"/>
                     <connections>
-                        <segue destination="47T-tT-uIm" kind="presentation" identifier="showDetails" id="rxM-pB-bsI"/>
+                        <segue destination="xdG-QR-5xo" kind="presentation" identifier="showDetails" id="cow-Dx-nJY"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w6Q-Tj-KdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="591" y="3692"/>
         </scene>
-        <!--Contact Details Table View Controller-->
-        <scene sceneID="b9R-Cr-alD">
+        <!--Contact Details View Controller-->
+        <scene sceneID="dvZ-9A-gkc">
             <objects>
-                <tableViewController id="47T-tT-uIm" customClass="ContactDetailsTableViewController" customModule="BConnectTo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="8jz-J1-5gJ">
+                <viewController id="xdG-QR-5xo" customClass="ContactDetailsViewController" customModule="BConnectTo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GKb-cB-Rik"/>
+                        <viewControllerLayoutGuide type="bottom" id="u4V-xf-Mf9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YZR-s1-6Vd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MgO-Eu-1gR">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="bcard" id="F3M-MD-5vl">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F3M-MD-5vl" id="swK-8J-caz">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="xdG-QR-5xo" id="6hZ-MX-IBk"/>
+                                    <outlet property="delegate" destination="xdG-QR-5xo" id="3ZP-02-aKJ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bCard" id="G4b-fe-441">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G4b-fe-441" id="V8U-af-JQc">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="47T-tT-uIm" id="4Me-NU-7AX"/>
-                            <outlet property="delegate" destination="47T-tT-uIm" id="1RA-vb-eP1"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5Y-8O-OGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="MgO-Eu-1gR" firstAttribute="top" secondItem="GKb-cB-Rik" secondAttribute="bottom" id="BGA-yd-Jq5"/>
+                            <constraint firstItem="MgO-Eu-1gR" firstAttribute="leading" secondItem="YZR-s1-6Vd" secondAttribute="leadingMargin" constant="-20" id="ciP-uM-ngG"/>
+                            <constraint firstItem="u4V-xf-Mf9" firstAttribute="top" secondItem="MgO-Eu-1gR" secondAttribute="bottom" id="fwo-bM-QiP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MgO-Eu-1gR" secondAttribute="trailing" constant="-20" id="rt8-Tm-6yg"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JFY-ot-83d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="591" y="4402"/>
+            <point key="canvasLocation" x="591" y="4427"/>
         </scene>
         <!--Contacts-->
         <scene sceneID="Dka-r8-JVz">
