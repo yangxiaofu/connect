@@ -10,6 +10,16 @@ import UIKit
 
 class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
+    @IBAction func closeModel(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func shareCard(sender: AnyObject) {
+        
+        //TODO: Should share the card
+    }
+    
     var contactId:String?
 
     override func viewDidLoad() {
@@ -42,17 +52,11 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("bcard", forIndexPath: indexPath)
         
-        cell.textLabel?.text = "Test"
+        
 
         // Configure the cell...
 
         return cell
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        performSegueWithIdentifier("showDetails", sender: self);
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

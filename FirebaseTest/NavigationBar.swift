@@ -14,7 +14,7 @@ class NavigationBar: UINavigationController {
         self.navigationBar.barTintColor = UIColor(red: 234/255, green: 220/255, blue: 205/255, alpha: 1.0)
         self.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Helvetica-light", size: 15)!]
         
-        
+
     }
 
     /*
