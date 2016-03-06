@@ -19,6 +19,7 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
     var email = ""
     var phoneNumber = ""
     
+    @IBOutlet var tblView: UITableView!
     
     
     @IBAction func closeModel(sender: AnyObject) {
@@ -33,30 +34,7 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let c = cardId{
-            thisCardId = c
-            thisCard = DDBusinessCard(id: thisCardId)
-        }
-        
-        if let e = thisCard?.email{
-            email = e
-        }
-        
-        if let c = thisCard?.company{
-            company = c
-        }
-        
-        if let n = thisCard?.name{
-            name = n
-        }
-        
-        if let h = thisCard?.headline{
-            headline = h
-        }
-        
-        if let pn = thisCard?.phoneNumber{
-            phoneNumber = pn
-        }
+
 
         
 
@@ -68,7 +46,41 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     override func viewWillAppear(animated: Bool) {
+        
+        if let c = cardId{
+            thisCardId = c
+            thisCard = DDBusinessCard(id: thisCardId)
+        }
+        
+        
+        let delay = 1.0 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+    
+        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+            if let e = self.thisCard?.email{
+                self.email = e
+            }
+            
+            if let c = self.thisCard?.company{
+                self.company = c
+            }
+            
+            if let n = self.thisCard?.name{
+                self.name = n
+            }
+            
+            if let h = self.thisCard?.headline{
+                self.headline = h
+            }
+            
+            if let pn = self.thisCard?.phoneNumber{
+                self.phoneNumber = pn
+            }
+            
+            self.tblView.reloadData()
+        }
 
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -89,24 +101,26 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        //TODO: - Activity Indicator
         let cell = tableView.dequeueReusableCellWithIdentifier("bcard", forIndexPath: indexPath) as! BCardTableViewCell
-    
-        Gravatar.service.getGravatarImage(email, completion: { (data, response, error) -> () in
+        
+        Gravatar.service.getGravatarImage(self.email, completion: { (data, response, error) -> () in
             cell.userImage.image = UIImage(data: data!)
         })
-        print("fuck you")
-        print(name)
-        print(email)
-        print("bitch")
-        cell.name.text = name
-        cell.company.text = company
-        cell.headline.text = headline
-        cell.email.text = email
-        cell.phoneNumber.text = phoneNumber
-
-        // Configure the cell...
+        cell.name.text = self.name
+        cell.company.text = self.company
+        cell.headline.text = self.headline
+        cell.email.text = self.email
+        cell.phoneNumber.text = self.phoneNumber
 
         return cell
+        
+    
+        
+        // Configure the cell...
+
+
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

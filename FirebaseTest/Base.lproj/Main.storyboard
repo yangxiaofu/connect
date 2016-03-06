@@ -1344,6 +1344,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="MgO-Eu-1gR" secondAttribute="trailing" constant="-20" id="rt8-Tm-6yg"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tblView" destination="MgO-Eu-1gR" id="ZZ4-Jg-JAW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JFY-ot-83d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
