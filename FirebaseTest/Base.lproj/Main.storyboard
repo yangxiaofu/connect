@@ -514,7 +514,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7Mo-I7-q7u">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bao" translatesAutoresizingMaskIntoConstraints="NO" id="AAk-dc-Iwo" customClass="CircularImage" customModule="BConnectTo" customModuleProvider="target">
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red" translatesAutoresizingMaskIntoConstraints="NO" id="AAk-dc-Iwo" customClass="CircularImage" customModule="BConnectTo" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                 </imageView>
                                                             </subviews>
@@ -526,14 +526,14 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="i09-Lq-ZFZ">
                                                             <rect key="frame" x="60" y="0.0" width="484" height="47"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Michelle Bao" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tow-Qv-adL" customClass="DDContactName" customModule="BConnectTo" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="98" height="21"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tow-Qv-adL" customClass="DDContactName" customModule="BConnectTo" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="45" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Director of Sales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4H-JH-Ox5">
-                                                                    <rect key="frame" x="0.0" y="26" width="127" height="21"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Headline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4H-JH-Ox5">
+                                                                    <rect key="frame" x="0.0" y="26" width="68" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -1259,42 +1259,38 @@
                                                             </constraints>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FBM-fG-KCG">
-                                                            <rect key="frame" x="120" y="0.0" width="464" height="125"/>
+                                                            <rect key="frame" x="120" y="0.0" width="464" height="105"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqp-U0-lYk" customClass="GreyLabelHeader1" customModule="BConnectTo" customModuleProvider="target">
-                                                                    <rect key="frame" x="196" y="0.0" width="73" height="19"/>
+                                                                    <rect key="frame" x="196" y="0.0" width="73" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEn-S5-GK1" customClass="GreyLabelHeader1" customModule="BConnectTo" customModuleProvider="target">
-                                                                    <rect key="frame" x="210" y="19" width="45" height="21"/>
+                                                                    <rect key="frame" x="210" y="21" width="45" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Director of Sales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAu-N8-MIm" customClass="GreyLabelHeader1" customModule="BConnectTo" customModuleProvider="target">
-                                                                    <rect key="frame" x="169" y="40" width="127" height="21"/>
+                                                                    <rect key="frame" x="169" y="42" width="127" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZL-zW-O4J" customClass="GreyLabelSubHeader" customModule="BConnectTo" customModuleProvider="target">
-                                                                    <rect key="frame" x="212" y="61" width="41" height="21"/>
+                                                                    <rect key="frame" x="212" y="63" width="41" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4B-VW-eMd" customClass="GreyLabelSubHeader" customModule="BConnectTo" customModuleProvider="target">
-                                                                    <rect key="frame" x="175" y="82" width="115" height="21"/>
+                                                                    <rect key="frame" x="175" y="84" width="115" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FtW-qI-ovO">
-                                                                    <rect key="frame" x="219" y="103" width="27" height="22"/>
-                                                                    <state key="normal" image="Shape"/>
-                                                                </button>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
@@ -1333,11 +1329,6 @@
                                                 <action selector="closeModel:" destination="xdG-QR-5xo" id="uYi-em-kpz"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="ybT-EO-y9B">
-                                            <connections>
-                                                <action selector="shareCard:" destination="xdG-QR-5xo" id="Eeo-tJ-XHK"/>
-                                            </connections>
-                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -1360,13 +1351,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JFY-ot-83d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="591" y="4427"/>
+            <point key="canvasLocation" x="591" y="4465"/>
         </scene>
         <!--Contacts-->
         <scene sceneID="Dka-r8-JVz">
             <objects>
                 <navigationController title="Contacts" id="QTE-GM-VCu" customClass="NavigationBar" customModule="BConnectTo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Contacts" id="Qvd-TI-yLb"/>
+                    <tabBarItem key="tabBarItem" title="Contacts" id="Qvd-TI-yLb" customClass="DDTabBarItem" customModule="BConnectTo" customModuleProvider="target"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="52p-yy-98R">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1379,11 +1370,11 @@
             </objects>
             <point key="canvasLocation" x="591" y="2853"/>
         </scene>
-        <!--BCard-->
+        <!--Card-->
         <scene sceneID="Imd-GV-0xy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8e0-kF-Ab6" customClass="NavigationBar" customModule="BConnectTo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="BCard" id="W0j-2k-ekW"/>
+                    <tabBarItem key="tabBarItem" title="Card" id="W0j-2k-ekW" customClass="DDTabBarItem" customModule="BConnectTo" customModuleProvider="target"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oNQ-Xr-bH3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1406,6 +1397,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" red="0.96862745098039216" green="0.95686274509803926" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="socialCell" rowHeight="100" id="OBV-JF-eNa" customClass="SocialTableViewCell" customModule="BConnectTo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="100"/>
@@ -1503,6 +1495,7 @@
                                         <constraint firstItem="Tei-Wx-3Lk" firstAttribute="centerX" secondItem="W8B-aB-JSb" secondAttribute="centerX" id="fON-qc-7d8"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.95686274509803926" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="googlePlus" destination="lvM-qO-vFq" id="FKY-zy-BS8"/>
                                     <outlet property="linkedIn" destination="mxy-D8-AUB" id="5Yk-hO-SCu"/>
@@ -1524,7 +1517,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="500" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="sQd-qS-DeO">
                                                             <rect key="frame" x="0.0" y="48" width="80" height="80"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="red" translatesAutoresizingMaskIntoConstraints="NO" id="sxt-Y7-utj" customClass="CircularImage" customModule="BConnectTo" customModuleProvider="target">
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="red" translatesAutoresizingMaskIntoConstraints="NO" id="sxt-Y7-utj" customClass="UserImageGreenBorder" customModule="BConnectTo" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                                 </imageView>
                                                             </subviews>
@@ -1632,11 +1625,13 @@
                                             </subviews>
                                         </stackView>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.96862745098039216" green="0.95686274509803926" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="YFH-p6-nze" firstAttribute="centerX" secondItem="ALf-m0-9fX" secondAttribute="centerX" id="7Qd-5S-zfG"/>
                                         <constraint firstItem="YFH-p6-nze" firstAttribute="top" secondItem="ALf-m0-9fX" secondAttribute="topMargin" constant="10" id="Gx5-0t-pjS"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.95686274509803926" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="company" destination="Dpu-9R-7hn" id="NPA-Kt-lU7"/>
                                     <outlet property="email" destination="84D-if-SH9" id="PRV-vO-HC0"/>
@@ -1705,6 +1700,7 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="al1-2X-j9j" secondAttribute="trailing" id="st3-EV-lPv"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.95686274509803926" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="personalPhone" destination="036-6W-u4W" id="Ash-0h-YSi"/>
                                     <outlet property="phoneType" destination="2z5-X4-mhI" id="Nl4-f6-Z5V"/>
@@ -1734,6 +1730,7 @@
                                         <constraint firstItem="bss-qE-Ybe" firstAttribute="centerX" secondItem="DYL-6V-AEK" secondAttribute="centerX" id="Uik-VG-WIR"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.95686274509803926" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="emailCell" rowHeight="105" id="u46-fw-mIb" customClass="EmailTableViewCell" customModule="BConnectTo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="535" width="600" height="105"/>
@@ -1791,6 +1788,7 @@
                                         <constraint firstItem="XhO-pk-2sZ" firstAttribute="leading" secondItem="iuv-UF-Y2I" secondAttribute="leadingMargin" id="rFk-vn-DyT"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.95686274509803926" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="email" destination="wl3-dn-Cgi" id="Zcx-Zm-voE"/>
                                     <outlet property="emailType" destination="pIy-x5-4Ly" id="qzO-hT-duL"/>
@@ -1820,6 +1818,7 @@
                                         <constraint firstItem="sw3-aj-7bS" firstAttribute="centerY" secondItem="aTS-ZZ-8Zq" secondAttribute="centerY" id="rnI-Xh-bLO"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.95686274509803926" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -2202,7 +2201,7 @@
         <scene sceneID="aWg-yI-4fe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O7t-yL-WIg" customClass="NavigationBar" customModule="BConnectTo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Share" id="1vv-8j-gMh"/>
+                    <tabBarItem key="tabBarItem" title="Share" id="1vv-8j-gMh" customClass="DDTabBarItem" customModule="BConnectTo" customModuleProvider="target"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CQZ-C2-1nE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2258,9 +2257,7 @@
         <image name="GooglePlus" width="48" height="48"/>
         <image name="Image" width="375" height="667"/>
         <image name="LinkedIn" width="48" height="48"/>
-        <image name="Shape" width="27" height="17"/>
         <image name="SignInDisplay" width="320" height="448"/>
-        <image name="bao" width="671" height="503"/>
         <image name="red" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>

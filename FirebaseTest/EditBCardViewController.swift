@@ -12,7 +12,7 @@ protocol UserSavedInformationDelegate{
     func UserDidSaveInfo()
 }
 
-class EditBCardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, SavedUserImageDelegate, UserUpdatedImage{
+class EditBCardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UserUpdatedImage{
     private var fullName = ""
     private var company = ""
     private var headline = ""
@@ -136,7 +136,9 @@ class EditBCardViewController: UIViewController, UITableViewDelegate, UITableVie
         case 0: //Info
             let cell = tableView.dequeueReusableCellWithIdentifier("InfoCell", forIndexPath: indexPath) as! EditInfoTableViewCell
             
-            cell.userImage.image = UIImage(data: user.userImageData)
+            Gravatar.service.getGravatarImage(user.email, completion: { (data, response, error) -> () in
+                cell.userImage.image = UIImage(data: data!)
+            })
             
             cell.company.text = card.company
             cell.company.delegate = self
@@ -294,17 +296,12 @@ class EditBCardViewController: UIViewController, UITableViewDelegate, UITableVie
         return 3
     }
     
-    func UserDidSaveUserImage(image: UIImage) {
-        self.userImage = image
-        self.tblView.reloadData()
-    }
-    
     func UserDidCloseUpdateImage() {
+        print("Closed teh image and user has it updated")
         self.tblView.reloadData()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
         if segue.identifier == Storyboard.Gravatar{
             let gravatarVC:GravatarViewController = segue.destinationViewController as! GravatarViewController
             gravatarVC.delegate = self

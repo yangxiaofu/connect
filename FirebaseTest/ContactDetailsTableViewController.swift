@@ -26,12 +26,6 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func shareCard(sender: AnyObject) {
-        
-        //TODO: Should share the card
-    }
-   
-
     override func viewDidLoad() {
         super.viewDidLoad()
 

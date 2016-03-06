@@ -46,7 +46,6 @@ class bCardViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Business Card"
         // Do any additional setup after loading the view.
     }
     
@@ -70,7 +69,10 @@ class bCardViewController: UIViewController, UITableViewDelegate, UITableViewDat
         case 1: //bcard Cell
             let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! bCardCell
 
-            cell.userImage.image = UIImage(data: user.userImageData )
+            Gravatar.service.getGravatarImage(user.email, completion: { (data, response, error) -> () in
+                cell.userImage.image = UIImage(data: data! )
+            })
+            
             cell.fullName.text = card.name
             cell.company.text = card.company
             cell.headline.text = card.headline
@@ -139,7 +141,7 @@ class bCardViewController: UIViewController, UITableViewDelegate, UITableViewDat
         case 0: //vCard
             height = 95.0
         case 1: //Phone Numbers
-            height = 215.0
+            height = 180.0
         case 2: // Emails
             height = 65.0
         case 3: // Social Media
@@ -202,15 +204,11 @@ class bCardViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 } catch {
                     print("There was no class name attached to this")
                 }
-                
             case 4:
-
-                
                 if emails[EMAIL_ADDRESS][indexPath.row] != user.email{
                     
                     let key = emails[EMAIL_KEY][indexPath.row]
                     let object = FBObject(className: Email.BranchName)
-                    
                     
                     do{
                         try object.removeObject(key)
@@ -284,6 +282,7 @@ class bCardViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func UserDidSaveInfo(){
+        
         tblView.reloadData()
     }
     

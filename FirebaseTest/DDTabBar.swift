@@ -11,8 +11,8 @@ import UIKit
 class DDTabBar: UITabBar {
     
     override func awakeFromNib() {
-        self.barTintColor = UIColor.whiteColor();
-        
+        self.barTintColor = UIColor(red: 239/255, green: 81/255, blue: 82/255, alpha: 1.0);
+
     }
 
     /*
@@ -23,4 +23,14 @@ class DDTabBar: UITabBar {
     }
     */
 
+}
+
+
+class DDTabBarItem: UITabBarItem{
+    
+    override func awakeFromNib() {
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName : UIColor(red: CGFloat(1), green: CGFloat(1), blue: CGFloat(1), alpha: CGFloat(1))], forState: UIControlState.Normal)
+
+    }
 }
