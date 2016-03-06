@@ -1197,12 +1197,20 @@
                             <outlet property="delegate" destination="MY7-d1-Vrd" id="ITM-8d-Z3A"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Contacts" id="WNI-AO-AgB"/>
+                    <navigationItem key="navigationItem" title="Contacts" id="WNI-AO-AgB">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="X3G-UC-v9e">
+                            <connections>
+                                <action selector="logout:" destination="MY7-d1-Vrd" id="Air-Ku-5cK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="xdG-QR-5xo" kind="presentation" identifier="showDetails" id="cow-Dx-nJY"/>
+                        <segue destination="lHH-da-mFo" kind="unwind" identifier="logout" unwindAction="prepareForUnwind:" id="Pw8-QP-eSu"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w6Q-Tj-KdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lHH-da-mFo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="591" y="3692"/>
         </scene>

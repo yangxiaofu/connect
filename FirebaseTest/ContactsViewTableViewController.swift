@@ -12,6 +12,7 @@ class ContactsViewTableViewController: UITableViewController {
     
     struct Storyboard{
         static let ShowDetails = "showDetails"
+        static let Logout = "logout"
     }
     
     var contactEmails = [String]()
@@ -19,6 +20,13 @@ class ContactsViewTableViewController: UITableViewController {
     var contactNames = [String]()
     var contactUserId = [String]()
     var cardId = [String]()
+    
+    
+    
+    @IBAction func logout(sender: AnyObject) {
+        user.logOut()
+        performSegueWithIdentifier(Storyboard.Logout, sender: self)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
