@@ -26,6 +26,7 @@
 		A549F4EF1C8BD9D900F07650 /* GreyLabelHeader1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A549F4EE1C8BD9D900F07650 /* GreyLabelHeader1.swift */; };
 		A549F4F11C8BDA5E00F07650 /* GreyLabelSubHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A549F4F01C8BDA5E00F07650 /* GreyLabelSubHeader.swift */; };
 		A549F4F71C8BDC5300F07650 /* UserImageGreenBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A549F4F61C8BDC5300F07650 /* UserImageGreenBorder.swift */; };
+		A56EE6161C8C926400B96E59 /* GravatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56EE6151C8C926400B96E59 /* GravatarViewController.swift */; };
 		A58E70501C70FC7C00F745D6 /* DDNameString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E704F1C70FC7C00F745D6 /* DDNameString.swift */; };
 		A58E70551C7C0CAB00F745D6 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E70541C7C0CAB00F745D6 /* ShareViewController.swift */; };
 		A58E70571C7C0EB100F745D6 /* MPCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E70561C7C0EB100F745D6 /* MPCManager.swift */; };
@@ -87,6 +88,7 @@
 		A549F4EE1C8BD9D900F07650 /* GreyLabelHeader1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreyLabelHeader1.swift; sourceTree = "<group>"; };
 		A549F4F01C8BDA5E00F07650 /* GreyLabelSubHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreyLabelSubHeader.swift; sourceTree = "<group>"; };
 		A549F4F61C8BDC5300F07650 /* UserImageGreenBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserImageGreenBorder.swift; sourceTree = "<group>"; };
+		A56EE6151C8C926400B96E59 /* GravatarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GravatarViewController.swift; sourceTree = "<group>"; };
 		A58E704F1C70FC7C00F745D6 /* DDNameString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDNameString.swift; sourceTree = "<group>"; };
 		A58E70541C7C0CAB00F745D6 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		A58E70561C7C0EB100F745D6 /* MPCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCManager.swift; sourceTree = "<group>"; };
@@ -244,6 +246,14 @@
 			name = Navigations;
 			sourceTree = "<group>";
 		};
+		A56EE6141C8C924F00B96E59 /* Gravatar */ = {
+			isa = PBXGroup;
+			children = (
+				A56EE6151C8C926400B96E59 /* GravatarViewController.swift */,
+			);
+			name = Gravatar;
+			sourceTree = "<group>";
+		};
 		A58E70531C7C0C8E00F745D6 /* Share */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +324,7 @@
 		A5C4B97F1C5DE4EB00F6E477 /* BCard */ = {
 			isa = PBXGroup;
 			children = (
+				A56EE6141C8C924F00B96E59 /* Gravatar */,
 				A5C4B9821C5DE51100F6E477 /* Cells */,
 				A507F6951C6B055F003B7755 /* SelectImageTableViewController.swift */,
 				A5C4B97D1C5DE47400F6E477 /* bCardViewController.swift */,
@@ -506,6 +517,7 @@
 				A5FEBEE51C7E28D1009D304D /* ContactCellTableViewCell.swift in Sources */,
 				A507F6861C6AFD8C003B7755 /* phoneCellTableViewCell.swift in Sources */,
 				A549F4E81C8B966300F07650 /* Gravatar.swift in Sources */,
+				A56EE6161C8C926400B96E59 /* GravatarViewController.swift in Sources */,
 				A5FEBEE31C7E282D009D304D /* PrototypeContactsViewTableViewController.swift in Sources */,
 				A5FEBEED1C7E3D8F009D304D /* NavigationBar.swift in Sources */,
 				A5C4B9841C5DE52600F6E477 /* bCardCell.swift in Sources */,

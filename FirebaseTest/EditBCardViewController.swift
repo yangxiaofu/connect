@@ -12,7 +12,7 @@ protocol UserSavedInformationDelegate{
     func UserDidSaveInfo()
 }
 
-class EditBCardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, SavedUserImageDelegate{
+class EditBCardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, SavedUserImageDelegate, UserUpdatedImage{
     private var fullName = ""
     private var company = ""
     private var headline = ""
@@ -28,7 +28,7 @@ class EditBCardViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet var tblView: UITableView!
     
     struct Storyboard{
-        static let SelectImage = "selectImage"
+        static let Gravatar = "toGravatar"
     }
     struct SectionIdentifier{
         static let Phone = "Phone"
@@ -83,13 +83,11 @@ class EditBCardViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     @IBAction func selectImage(sender: AnyObject) {
-        performSegueWithIdentifier(Storyboard.SelectImage, sender: self)
+        performSegueWithIdentifier(Storyboard.Gravatar, sender: self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -268,11 +266,30 @@ class EditBCardViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header:UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
-        header.contentView.backgroundColor = UIColor.redColor()
-        header.textLabel?.textColor = UIColor.whiteColor()
-        header.alpha = 0.5
+        header.textLabel?.font = UIFont(name: "Helvetica", size: 15.0)
+        
+        switch section{
+            
+        case 1:
+            header.contentView.backgroundColor = UIColor(red: 0/255, green: 171/255, blue: 175/255, alpha: 1.0)
+            header.textLabel?.textColor = UIColor.whiteColor()
+            header.alpha = 0.5
+            
+        case 2:
+            
+            header.contentView.backgroundColor = UIColor(red: 239/255, green: 81/255, blue: 82/255, alpha: 1.0)
+            header.textLabel?.textColor = UIColor.whiteColor()
+            header.alpha = 0.5
+
+        default:
+            header.contentView.backgroundColor = UIColor(red: 0/255, green: 171/255, blue: 175/255, alpha: 1.0)
+            header.textLabel?.textColor = UIColor.whiteColor()
+            header.alpha = 0.5
+
+            
+        }
     }
-    
+
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 3
     }
@@ -282,10 +299,15 @@ class EditBCardViewController: UIViewController, UITableViewDelegate, UITableVie
         self.tblView.reloadData()
     }
     
+    func UserDidCloseUpdateImage() {
+        self.tblView.reloadData()
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == Storyboard.SelectImage{
-            let selectImageVC:SelectImageTableViewController = segue.destinationViewController as! SelectImageTableViewController
-            selectImageVC.delegate = self
+
+        if segue.identifier == Storyboard.Gravatar{
+            let gravatarVC:GravatarViewController = segue.destinationViewController as! GravatarViewController
+            gravatarVC.delegate = self
         }
     }
     

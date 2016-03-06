@@ -46,7 +46,7 @@ class bCardViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "vCard"
+        self.title = "Business Card"
         // Do any additional setup after loading the view.
     }
     
